@@ -1,0 +1,1224 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Biological, archaeological, and visual evidence for deer in the Tarim Basin—and the limits of what it proves.">
+  <title>Traces of Deer in the Tarim Basin</title>
+  <style>
+    :root { color-scheme: light; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: #fff; color: #202326; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; }
+    main { width: min(76rem, calc(100% - 2rem)); margin: 0 auto; padding: 2rem 0 5rem; }
+    h1 { max-width: 18ch; margin: 1rem 0 .35rem; font-size: clamp(2.2rem, 7vw, 5.8rem); line-height: .95; letter-spacing: -.055em; }
+    a { color: inherit; }
+    .tarim-deer {
+  --td-ink: #202326;
+  --td-muted: #626970;
+  --td-rule: #c8cdd1;
+  --td-surface: #f3f4f4;
+  --td-accent: #775444;
+  color: var(--td-ink);
+  line-height: 1.55;
+}
+
+.tarim-deer * { box-sizing: border-box; }
+.tarim-deer h2, .tarim-deer h3 { letter-spacing: -.02em; }
+.tarim-deer h2 { margin-top: 0; font-size: clamp(1.55rem, 3vw, 2.4rem); }
+.tarim-deer img { display: block; width: 100%; height: auto; background: var(--td-surface); }
+.tarim-deer button, .tarim-deer select { font: inherit; }
+.tarim-deer a { text-underline-offset: .18em; }
+
+.tarim-deer__header { border-top: 6px solid var(--td-ink); padding-top: 1rem; }
+.tarim-deer__kicker, .tarim-deer__number, .evidence-card__class, .evidence-detail__eyebrow {
+  color: var(--td-muted);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: .75rem;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+}
+.tarim-deer__lede { max-width: 31ch; margin: 1rem 0; font-size: clamp(1.35rem, 3vw, 2.2rem); line-height: 1.2; }
+.tarim-deer__abstract { max-width: 68ch; font-size: 1.05rem; }
+.tarim-deer__summary { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; margin: 2rem 0; background: var(--td-rule); border: 1px solid var(--td-rule); }
+.tarim-deer__summary div { padding: .85rem; background: #fff; }
+.tarim-deer__summary dt, .evidence-card__reading dt, .evidence-detail dt { font-weight: 700; }
+.tarim-deer__summary dd, .evidence-card__reading dd, .evidence-detail dd { margin: .25rem 0 0; }
+
+.tarim-deer__contents { display: flex; flex-wrap: wrap; gap: .5rem 1.25rem; padding: .8rem 0; border-block: 1px solid var(--td-rule); font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: .8rem; }
+.tarim-deer__chapter, .tarim-deer__archive, .tarim-deer__references { padding: clamp(3rem, 8vw, 6rem) 0 0; }
+.tarim-deer__chapter-heading { display: grid; grid-template-columns: 3rem minmax(0, 46rem); gap: 1rem; margin-bottom: 2rem; }
+.tarim-deer__chapter-heading p { max-width: 66ch; }
+.tarim-deer__number { margin: .35rem 0 0; }
+.tarim-deer__featured { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2.5rem 1.25rem; }
+
+.evidence-card { min-width: 0; border-top: 1px solid var(--td-rule); padding-top: .5rem; }
+.evidence-card[hidden] { display: none; }
+.evidence-card figure { margin: 0; }
+.evidence-card figure img { aspect-ratio: 4 / 3; object-fit: contain; }
+.evidence-card figcaption { display: flex; gap: .75rem; margin-top: .55rem; font-weight: 700; line-height: 1.3; }
+.evidence-card figcaption span { flex: 0 0 auto; color: var(--td-muted); font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: .75rem; }
+.evidence-card__class { margin: .5rem 0; }
+.evidence-card__reading { margin: 1rem 0; }
+.evidence-card__reading div { display: grid; grid-template-columns: 7rem 1fr; gap: .75rem; padding: .55rem 0; border-top: 1px solid var(--td-rule); }
+.evidence-card__details { margin-top: .75rem; }
+.evidence-card__details summary { cursor: pointer; font-weight: 700; }
+.evidence-card__open { display: none; width: 100%; margin-top: .75rem; padding: .55rem .8rem; border: 1px solid var(--td-ink); border-radius: 0; background: transparent; color: var(--td-ink); cursor: pointer; text-align: left; }
+.has-dialog .evidence-card__open { display: block; }
+.has-dialog .evidence-card:not(.evidence-card--featured) .evidence-card__details { display: none; }
+.evidence-card__open:hover, .evidence-card__open:focus-visible { background: var(--td-ink); color: #fff; }
+
+.tarim-deer__claims { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--td-rule); border: 1px solid var(--td-rule); }
+.tarim-deer__claims div { padding: 1rem; background: var(--td-surface); }
+.tarim-deer__claims h3 { margin-top: 0; font-size: 1rem; }
+
+.tarim-deer__archive-heading { display: grid; grid-template-columns: minmax(14rem, 1fr) minmax(16rem, 1fr); gap: 2rem; align-items: end; border-bottom: 2px solid var(--td-ink); }
+.tarim-deer__archive-heading div { display: flex; gap: 1rem; align-items: baseline; }
+.tarim-deer__filters { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)) auto; gap: .75rem; align-items: end; margin: 1rem 0 2rem; padding: 1rem; background: var(--td-surface); }
+.tarim-deer__filters label { display: grid; gap: .25rem; color: var(--td-muted); font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: .72rem; text-transform: uppercase; }
+.tarim-deer__filters select, .tarim-deer__filters button { min-height: 2.5rem; border: 1px solid var(--td-rule); border-radius: 0; background: #fff; color: var(--td-ink); padding: .4rem; }
+.tarim-deer__filters button { padding-inline: 1rem; cursor: pointer; }
+.tarim-deer__grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 2rem 1rem; }
+.tarim-deer__empty { padding: 2rem; border: 1px solid var(--td-rule); text-align: center; }
+
+.evidence-detail > picture img { max-height: 68vh; object-fit: contain; }
+.evidence-detail__reading, .evidence-detail__meta { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; margin: 1rem 0; background: var(--td-rule); border: 1px solid var(--td-rule); }
+.evidence-detail__reading div, .evidence-detail__meta div { padding: .75rem; background: #fff; overflow-wrap: anywhere; }
+.evidence-detail__meta { grid-template-columns: repeat(2, 1fr); font-size: .88rem; }
+.evidence-detail__meta dt { color: var(--td-muted); font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: .68rem; letter-spacing: .04em; text-transform: uppercase; }
+
+.tarim-deer__dialog { width: min(72rem, calc(100% - 2rem)); max-height: calc(100% - 2rem); padding: 1rem; border: 1px solid var(--td-ink); color: var(--td-ink); }
+.tarim-deer__dialog::backdrop { background: rgb(20 22 24 / .72); }
+.tarim-deer__dialog-close { position: sticky; z-index: 2; top: 0; float: right; padding: .5rem .75rem; border: 1px solid var(--td-ink); background: #fff; cursor: pointer; }
+.tarim-deer__references ol { padding-left: 1.5rem; }
+.tarim-deer__references li { margin-bottom: .8rem; }
+.tarim-deer__source-note { padding: 1rem; border-left: 3px solid var(--td-accent); background: var(--td-surface); }
+
+@media (max-width: 850px) {
+  .tarim-deer__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .tarim-deer__filters { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .tarim-deer__summary, .tarim-deer__claims { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 600px) {
+  .tarim-deer__featured, .tarim-deer__grid, .tarim-deer__filters, .tarim-deer__archive-heading, .evidence-detail__reading, .evidence-detail__meta { grid-template-columns: 1fr; }
+  .tarim-deer__chapter-heading { grid-template-columns: 2rem 1fr; }
+  .evidence-card__reading div { grid-template-columns: 1fr; gap: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tarim-deer *, .tarim-deer *::before, .tarim-deer *::after { scroll-behavior: auto !important; }
+}
+
+@media print {
+  .tarim-deer__contents, .tarim-deer__filters, .evidence-card__open, .tarim-deer__dialog { display: none !important; }
+  .tarim-deer__grid, .tarim-deer__featured { grid-template-columns: repeat(2, 1fr); }
+  .evidence-card { break-inside: avoid; }
+  .evidence-card__details { display: block !important; }
+  .evidence-card__details > summary { display: none; }
+}
+
+  </style>
+</head>
+<body>
+<main>
+<article class="tarim-deer" data-evidence-page>
+  <header class="tarim-deer__header">
+    <p class="tarim-deer__kicker">A visual inquiry · 40 records</p>
+    <h1>Traces of Deer in the Tarim Basin</h1>
+    <p class="tarim-deer__lede">Biological, archaeological, and visual evidence—and the limits of what it proves.</p>
+    <p class="tarim-deer__abstract">The presence of deer in the Tarim Basin is not documented by one continuous record. It is reconstructed from animal remains, mobile objects, cave paintings, museum displays, and later comparisons. This page keeps the visible record separate from the conclusion drawn from it.</p>
+    <dl class="tarim-deer__summary"><div><dt>Question</dt><dd>What evidence supports the presence and cultural significance of deer?</dd></div><div><dt>Method</dt><dd>Look closely; distinguish observation, interpretation, and uncertainty.</dd></div><div><dt>Constraint</dt><dd>Capture times are known for field photographs; embedded GPS is absent.</dd></div></dl>
+  </header>
+  <nav class="tarim-deer__contents" aria-label="On this page"><a href="#biological">Biological traces</a><a href="#objects">Objects and depictions</a><a href="#caves">Buddhist imagery</a><a href="#synthesis">Synthesis</a><a href="#index">Evidence index</a></nav>
+
+  <section class="tarim-deer__chapter" id="biological"><div class="tarim-deer__chapter-heading"><p class="tarim-deer__number">01</p><div><h2>Biological traces</h2><p>The slides describe palaeobiological findings as scarce and note the absence of palaeogenetic studies focused on the basin. A displayed skull can document a specimen and its classification, but it cannot by itself establish long-term population dynamics.</p></div></div><div class="tarim-deer__featured"><article class="evidence-card evidence-card--featured">
+    <figure><picture><source type="image/webp" srcset="photos/thumbnails/field-20260402-120002.webp 480w, photos/reading/field-20260402-120002.webp 960w" sizes="(min-width: 760px) 46vw, 100vw"><img src="photos/thumbnails/field-20260402-120002.jpg" srcset="photos/thumbnails/field-20260402-120002.jpg 480w, photos/reading/field-20260402-120002.jpg 960w" sizes="(min-width: 760px) 46vw, 100vw" alt="Fragmentary deer skull with two antler bases mounted vertically in a museum case." width="3072" height="4096" loading="lazy" decoding="async"></picture><figcaption><span>003</span> Deer skull in a museum display</figcaption></figure>
+    <div class="evidence-card__body"><p class="evidence-card__class">Direct evidence · Unknown</p>
+      <dl class="evidence-card__reading"><div><dt>Observation</dt><dd>A fragmentary skull with paired antler bases is mounted above a specimen label.</dd></div><div><dt>Interpretation</dt><dd>A catalogued animal remain can contribute biological evidence when provenance and identification are verified.</dd></div><div><dt>Limit</dt><dd>The photograph alone does not establish findspot, age, or population continuity.</dd></div></dl>
+      <details class="evidence-card__details"><summary>Record details</summary><div class="evidence-detail" data-evidence-detail>
+    <p class="evidence-detail__eyebrow">Record 003 · Direct evidence</p>
+    <h3>Deer skull in a museum display</h3>
+    <picture><source type="image/webp" srcset="photos/reading/field-20260402-120002.webp 960w, photos/detail/field-20260402-120002.webp 1600w" sizes="(min-width: 900px) 70vw, 94vw"><img src="photos/reading/field-20260402-120002.jpg" srcset="photos/reading/field-20260402-120002.jpg 960w, photos/detail/field-20260402-120002.jpg 1600w" sizes="(min-width: 900px) 70vw, 94vw" alt="Fragmentary deer skull with two antler bases mounted vertically in a museum case." width="3072" height="4096" loading="lazy" decoding="async"></picture>
+    <dl class="evidence-detail__reading"><div><dt>Observation</dt><dd>A fragmentary skull with paired antler bases is mounted above a specimen label.</dd></div><div><dt>Interpretation</dt><dd>A catalogued animal remain can contribute biological evidence when provenance and identification are verified.</dd></div><div><dt>Limit</dt><dd>The photograph alone does not establish findspot, age, or population continuity.</dd></div></dl>
+    <dl class="evidence-detail__meta">
+      <div><dt>Source file</dt><dd>IMG_20260402_120002.jpg</dd></div><div><dt>Period</dt><dd>Unknown</dd></div>
+      <div><dt>Captured</dt><dd><time datetime="2026-04-02T12:00:02">2 April 2026, 12:00:02</time></dd></div>
+      <div><dt>Object findspot</dt><dd>Unknown</dd></div><div><dt>Holding site</dt><dd>Unknown</dd></div>
+      <div><dt>Photo location</dt><dd>Unknown</dd></div><div><dt>Credit</dt><dd>Photograph by Ilia Afanasev; slide credits Chinese Archaeological Museum</dd></div>
+      <div><dt>Citations</dt><dd><a href="#ref-6">[6]</a></dd></div>
+    </dl>
+  </div></details>
+      <button class="evidence-card__open" type="button" data-evidence-open aria-haspopup="dialog" aria-controls="evidence-dialog">Inspect record</button>
+    </div>
+  </article></div></section>
+  <section class="tarim-deer__chapter" id="objects"><div class="tarim-deer__chapter-heading"><p class="tarim-deer__number">02</p><div><h2>Objects and depictions</h2><p>Deer appear on ornaments, carved surfaces, portable objects, and museum reconstructions across widely separated periods. These representations demonstrate recognition and use of the animal image; their relationship to local ecology or hunting must be argued independently.</p></div></div><div class="tarim-deer__featured"><article class="evidence-card evidence-card--featured">
+    <figure><picture><source type="image/webp" srcset="photos/thumbnails/field-20260402-103229.webp 480w, photos/reading/field-20260402-103229.webp 960w" sizes="(min-width: 760px) 46vw, 100vw"><img src="photos/thumbnails/field-20260402-103229.jpg" srcset="photos/thumbnails/field-20260402-103229.jpg 480w, photos/reading/field-20260402-103229.jpg 960w" sizes="(min-width: 760px) 46vw, 100vw" alt="Two small green and tan deer-shaped objects displayed side by side in a museum case." width="3072" height="4096" loading="lazy" decoding="async"></picture><figcaption><span>002</span> Pair of deer-shaped objects in a museum case</figcaption></figure>
+    <div class="evidence-card__body"><p class="evidence-card__class">Direct evidence · Unknown</p>
+      <dl class="evidence-card__reading"><div><dt>Observation</dt><dd>Two small quadruped forms with deer-like bodies are displayed together.</dd></div><div><dt>Interpretation</dt><dd>The objects document the deer motif in material culture.</dd></div><div><dt>Limit</dt><dd>Their date, findspot, material, and holding institution require a verified catalogue record.</dd></div></dl>
+      <details class="evidence-card__details"><summary>Record details</summary><div class="evidence-detail" data-evidence-detail>
+    <p class="evidence-detail__eyebrow">Record 002 · Direct evidence</p>
+    <h3>Pair of deer-shaped objects in a museum case</h3>
+    <picture><source type="image/webp" srcset="photos/reading/field-20260402-103229.webp 960w, photos/detail/field-20260402-103229.webp 1600w" sizes="(min-width: 900px) 70vw, 94vw"><img src="photos/reading/field-20260402-103229.jpg" srcset="photos/reading/field-20260402-103229.jpg 960w, photos/detail/field-20260402-103229.jpg 1600w" sizes="(min-width: 900px) 70vw, 94vw" alt="Two small green and tan deer-shaped objects displayed side by side in a museum case." width="3072" height="4096" loading="lazy" decoding="async"></picture>
+    <dl class="evidence-detail__reading"><div><dt>Observation</dt><dd>Two small quadruped forms with deer-like bodies are displayed together.</dd></div><div><dt>Interpretation</dt><dd>The objects document the deer motif in material culture.</dd></div><div><dt>Limit</dt><dd>Their date, findspot, material, and holding institution require a verified catalogue record.</dd></div></dl>
+    <dl class="evidence-detail__meta">
+      <div><dt>Source file</dt><dd>IMG_20260402_103229.jpg</dd></div><div><dt>Period</dt><dd>Unknown</dd></div>
+      <div><dt>Captured</dt><dd><time datetime="2026-04-02T10:32:29">2 April 2026, 10:32:29</time></dd></div>
+      <div><dt>Object findspot</dt><dd>Unknown</dd></div><div><dt>Holding site</dt><dd>Unknown</dd></div>
+      <div><dt>Photo location</dt><dd>Unknown</dd></div><div><dt>Credit</dt><dd>Photograph by Ilia Afanasev</dd></div>
+      <div><dt>Citations</dt><dd>None assigned</dd></div>
+    </dl>
+  </div></details>
+      <button class="evidence-card__open" type="button" data-evidence-open aria-haspopup="dialog" aria-controls="evidence-dialog">Inspect record</button>
+    </div>
+  </article>
+<article class="evidence-card evidence-card--featured">
+    <figure><picture><source type="image/webp" srcset="photos/thumbnails/field-20260402-151913.webp 480w, photos/reading/field-20260402-151913.webp 960w" sizes="(min-width: 760px) 46vw, 100vw"><img src="photos/thumbnails/field-20260402-151913.jpg" srcset="photos/thumbnails/field-20260402-151913.jpg 480w, photos/reading/field-20260402-151913.jpg 960w" sizes="(min-width: 760px) 46vw, 100vw" alt="Small pale carving of a recumbent deer on a black museum plinth." width="3072" height="4096" loading="lazy" decoding="async"></picture><figcaption><span>006</span> Pale deer-shaped carving in a display case</figcaption></figure>
+    <div class="evidence-card__body"><p class="evidence-card__class">Direct evidence · Unknown</p>
+      <dl class="evidence-card__reading"><div><dt>Observation</dt><dd>A pale, compact carving represents a recumbent animal with raised head and folded legs.</dd></div><div><dt>Interpretation</dt><dd>The form is consistent with a deer motif used on a portable object.</dd></div><div><dt>Limit</dt><dd>Species, material, date, and provenance are not verified from the supplied view.</dd></div></dl>
+      <details class="evidence-card__details"><summary>Record details</summary><div class="evidence-detail" data-evidence-detail>
+    <p class="evidence-detail__eyebrow">Record 006 · Direct evidence</p>
+    <h3>Pale deer-shaped carving in a display case</h3>
+    <picture><source type="image/webp" srcset="photos/reading/field-20260402-151913.webp 960w, photos/detail/field-20260402-151913.webp 1600w" sizes="(min-width: 900px) 70vw, 94vw"><img src="photos/reading/field-20260402-151913.jpg" srcset="photos/reading/field-20260402-151913.jpg 960w, photos/detail/field-20260402-151913.jpg 1600w" sizes="(min-width: 900px) 70vw, 94vw" alt="Small pale carving of a recumbent deer on a black museum plinth." width="3072" height="4096" loading="lazy" decoding="async"></picture>
+    <dl class="evidence-detail__reading"><div><dt>Observation</dt><dd>A pale, compact carving represents a recumbent animal with raised head and folded legs.</dd></div><div><dt>Interpretation</dt><dd>The form is consistent with a deer motif used on a portable object.</dd></div><div><dt>Limit</dt><dd>Species, material, date, and provenance are not verified from the supplied view.</dd></div></dl>
+    <dl class="evidence-detail__meta">
+      <div><dt>Source file</dt><dd>IMG_20260402_151913.jpg</dd></div><div><dt>Period</dt><dd>Unknown</dd></div>
+      <div><dt>Captured</dt><dd><time datetime="2026-04-02T15:19:13">2 April 2026, 15:19:13</time></dd></div>
+      <div><dt>Object findspot</dt><dd>Unknown</dd></div><div><dt>Holding site</dt><dd>Unknown</dd></div>
+      <div><dt>Photo location</dt><dd>Unknown</dd></div><div><dt>Credit</dt><dd>Photograph by Ilia Afanasev</dd></div>
+      <div><dt>Citations</dt><dd>None assigned</dd></div>
+    </dl>
+  </div></details>
+      <button class="evidence-card__open" type="button" data-evidence-open aria-haspopup="dialog" aria-controls="evidence-dialog">Inspect record</button>
+    </div>
+  </article>
+<article class="evidence-card evidence-card--featured">
+    <figure><picture><source type="image/webp" srcset="photos/thumbnails/field-20260408-115317.webp 480w, photos/reading/field-20260408-115317.webp 960w" sizes="(min-width: 760px) 46vw, 100vw"><img src="photos/thumbnails/field-20260408-115317.jpg" srcset="photos/thumbnails/field-20260408-115317.jpg 480w, photos/reading/field-20260408-115317.jpg 960w" sizes="(min-width: 760px) 46vw, 100vw" alt="Close view of two running quadrupeds carved in a pale relief." width="4096" height="3072" loading="lazy" decoding="async"></picture><figcaption><span>011</span> Detail of running animals in relief</figcaption></figure>
+    <div class="evidence-card__body"><p class="evidence-card__class">Contextual image · Later historical</p>
+      <dl class="evidence-card__reading"><div><dt>Observation</dt><dd>Two elongated animals run in profile; branching forms above one back may be antlers or adjacent carving.</dd></div><div><dt>Interpretation</dt><dd>The image invites close comparison with established deer depictions.</dd></div><div><dt>Limit</dt><dd>Erosion and incomplete context make species identification insecure.</dd></div></dl>
+      <details class="evidence-card__details"><summary>Record details</summary><div class="evidence-detail" data-evidence-detail>
+    <p class="evidence-detail__eyebrow">Record 011 · Contextual image</p>
+    <h3>Detail of running animals in relief</h3>
+    <picture><source type="image/webp" srcset="photos/reading/field-20260408-115317.webp 960w, photos/detail/field-20260408-115317.webp 1600w" sizes="(min-width: 900px) 70vw, 94vw"><img src="photos/reading/field-20260408-115317.jpg" srcset="photos/reading/field-20260408-115317.jpg 960w, photos/detail/field-20260408-115317.jpg 1600w" sizes="(min-width: 900px) 70vw, 94vw" alt="Close view of two running quadrupeds carved in a pale relief." width="4096" height="3072" loading="lazy" decoding="async"></picture>
+    <dl class="evidence-detail__reading"><div><dt>Observation</dt><dd>Two elongated animals run in profile; branching forms above one back may be antlers or adjacent carving.</dd></div><div><dt>Interpretation</dt><dd>The image invites close comparison with established deer depictions.</dd></div><div><dt>Limit</dt><dd>Erosion and incomplete context make species identification insecure.</dd></div></dl>
+    <dl class="evidence-detail__meta">
+      <div><dt>Source file</dt><dd>IMG_20260408_115317.jpg</dd></div><div><dt>Period</dt><dd>Later historical</dd></div>
+      <div><dt>Captured</dt><dd><time datetime="2026-04-08T11:53:17">8 April 2026, 11:53:17</time></dd></div>
+      <div><dt>Object findspot</dt><dd>Unknown</dd></div><div><dt>Holding site</dt><dd>Unknown</dd></div>
+      <div><dt>Photo location</dt><dd>Unknown</dd></div><div><dt>Credit</dt><dd>Photograph by Ilia Afanasev</dd></div>
+      <div><dt>Citations</dt><dd>None assigned</dd></div>
+    </dl>
+  </div></details>
+      <button class="evidence-card__open" type="button" data-evidence-open aria-haspopup="dialog" aria-controls="evidence-dialog">Inspect record</button>
+    </div>
+  </article>
+<article class="evidence-card evidence-card--featured">
+    <figure><picture><source type="image/webp" srcset="photos/thumbnails/field-20260410-152855.webp 480w, photos/reading/field-20260410-152855.webp 960w" sizes="(min-width: 760px) 46vw, 100vw"><img src="photos/thumbnails/field-20260410-152855.jpg" srcset="photos/thumbnails/field-20260410-152855.jpg 480w, photos/reading/field-20260410-152855.jpg 960w" sizes="(min-width: 760px) 46vw, 100vw" alt="Dark curved openwork ornament with a horned animal form displayed on a clear stand." width="3072" height="4096" loading="lazy" decoding="async"></picture><figcaption><span>012</span> Curved openwork animal ornament</figcaption></figure>
+    <div class="evidence-card__body"><p class="evidence-card__class">Direct evidence · Unknown</p>
+      <dl class="evidence-card__reading"><div><dt>Observation</dt><dd>A curved object terminates in an openwork animal form with prominent curled appendages.</dd></div><div><dt>Interpretation</dt><dd>The object may belong to a tradition of stylized horned-animal imagery.</dd></div><div><dt>Limit</dt><dd>A secure deer identification and archaeological context require its catalogue entry.</dd></div></dl>
+      <details class="evidence-card__details"><summary>Record details</summary><div class="evidence-detail" data-evidence-detail>
+    <p class="evidence-detail__eyebrow">Record 012 · Direct evidence</p>
+    <h3>Curved openwork animal ornament</h3>
+    <picture><source type="image/webp" srcset="photos/reading/field-20260410-152855.webp 960w, photos/detail/field-20260410-152855.webp 1600w" sizes="(min-width: 900px) 70vw, 94vw"><img src="photos/reading/field-20260410-152855.jpg" srcset="photos/reading/field-20260410-152855.jpg 960w, photos/detail/field-20260410-152855.jpg 1600w" sizes="(min-width: 900px) 70vw, 94vw" alt="Dark curved openwork ornament with a horned animal form displayed on a clear stand." width="3072" height="4096" loading="lazy" decoding="async"></picture>
+    <dl class="evidence-detail__reading"><div><dt>Observation</dt><dd>A curved object terminates in an openwork animal form with prominent curled appendages.</dd></div><div><dt>Interpretation</dt><dd>The object may belong to a tradition of stylized horned-animal imagery.</dd></div><div><dt>Limit</dt><dd>A secure deer identification and archaeological context require its catalogue entry.</dd></div></dl>
+    <dl class="evidence-detail__meta">
+      <div><dt>Source file</dt><dd>IMG_20260410_152855.jpg</dd></div><div><dt>Period</dt><dd>Unknown</dd></div>
+      <div><dt>Captured</dt><dd><time datetime="2026-04-10T15:28:55">10 April 2026, 15:28:55</time></dd></div>
+      <div><dt>Object findspot</dt><dd>Unknown</dd></div><div><dt>Holding site</dt><dd>Unknown</dd></div>
+      <div><dt>Photo location</dt><dd>Unknown</dd></div><div><dt>Credit</dt><dd>Photograph by Ilia Afanasev</dd></div>
+      <div><dt>Citations</dt><dd>None assigned</dd></div>
+    </dl>
+  </div></details>
+      <button class="evidence-card__open" type="button" data-evidence-open aria-haspopup="dialog" aria-controls="evidence-dialog">Inspect record</button>
+    </div>
+  </article>
+<article class="evidence-card evidence-card--featured">
+    <figure><picture><source type="image/webp" srcset="photos/thumbnails/field-20260411-151907.webp 480w, photos/reading/field-20260411-151907.webp 960w" sizes="(min-width: 760px) 46vw, 100vw"><img src="photos/thumbnails/field-20260411-151907.jpg" srcset="photos/thumbnails/field-20260411-151907.jpg 480w, photos/reading/field-20260411-151907.jpg 960w" sizes="(min-width: 760px) 46vw, 100vw" alt="Museum graphic showing small gold objects and two mirrored antlered deer silhouettes." width="3072" height="4096" loading="lazy" decoding="async"></picture><figcaption><span>019</span> Display graphic of gold animal ornaments</figcaption></figure>
+    <div class="evidence-card__body"><p class="evidence-card__class">Direct evidence · Prehistoric / Bronze Age</p>
+      <dl class="evidence-card__reading"><div><dt>Observation</dt><dd>A display groups photographs of small gold objects with enlarged silhouettes of two antlered deer.</dd></div><div><dt>Interpretation</dt><dd>The deer silhouettes make the animal motif in the small ornaments legible.</dd></div><div><dt>Limit</dt><dd>The enlarged figures are display graphics; the original scale and catalogue data need separate verification.</dd></div></dl>
+      <details class="evidence-card__details"><summary>Record details</summary><div class="evidence-detail" data-evidence-detail>
+    <p class="evidence-detail__eyebrow">Record 019 · Direct evidence</p>
+    <h3>Display graphic of gold animal ornaments</h3>
+    <picture><source type="image/webp" srcset="photos/reading/field-20260411-151907.webp 960w, photos/detail/field-20260411-151907.webp 1600w" sizes="(min-width: 900px) 70vw, 94vw"><img src="photos/reading/field-20260411-151907.jpg" srcset="photos/reading/field-20260411-151907.jpg 960w, photos/detail/field-20260411-151907.jpg 1600w" sizes="(min-width: 900px) 70vw, 94vw" alt="Museum graphic showing small gold objects and two mirrored antlered deer silhouettes." width="3072" height="4096" loading="lazy" decoding="async"></picture>
+    <dl class="evidence-detail__reading"><div><dt>Observation</dt><dd>A display groups photographs of small gold objects with enlarged silhouettes of two antlered deer.</dd></div><div><dt>Interpretation</dt><dd>The deer silhouettes make the animal motif in the small ornaments legible.</dd></div><div><dt>Limit</dt><dd>The enlarged figures are display graphics; the original scale and catalogue data need separate verification.</dd></div></dl>
+    <dl class="evidence-detail__meta">
+      <div><dt>Source file</dt><dd>IMG_20260411_151907.jpg</dd></div><div><dt>Period</dt><dd>Prehistoric / Bronze Age</dd></div>
+      <div><dt>Captured</dt><dd><time datetime="2026-04-11T15:19:07">11 April 2026, 15:19:07</time></dd></div>
+      <div><dt>Object findspot</dt><dd>Eastern Tianshan Corridor, Hami County</dd></div><div><dt>Holding site</dt><dd>Unknown</dd></div>
+      <div><dt>Photo location</dt><dd>Unknown</dd></div><div><dt>Credit</dt><dd>Photograph by Ilia Afanasev</dd></div>
+      <div><dt>Citations</dt><dd>None assigned</dd></div>
+    </dl>
+  </div></details>
+      <button class="evidence-card__open" type="button" data-evidence-open aria-haspopup="dialog" aria-controls="evidence-dialog">Inspect record</button>
+    </div>
+  </article>
+<article class="evidence-card evidence-card--featured">
+    <figure><picture><source type="image/webp" srcset="photos/thumbnails/field-20260411-152245.webp 480w, photos/reading/field-20260411-152245.webp 960w" sizes="(min-width: 760px) 46vw, 100vw"><img src="photos/thumbnails/field-20260411-152245.jpg" srcset="photos/thumbnails/field-20260411-152245.jpg 480w, photos/reading/field-20260411-152245.jpg 960w" sizes="(min-width: 760px) 46vw, 100vw" alt="Tall illuminated stone reconstruction with a human or animal figure in a museum gallery." width="2448" height="3264" loading="lazy" decoding="async"></picture><figcaption><span>022</span> Reconstructed carved stone in a museum display</figcaption></figure>
+    <div class="evidence-card__body"><p class="evidence-card__class">Contextual image · Unknown</p>
+      <dl class="evidence-card__reading"><div><dt>Observation</dt><dd>A tall reconstructed or reproduced carved stone is illuminated within a museum display.</dd></div><div><dt>Interpretation</dt><dd>The display situates figural imagery within a wider archaeological narrative.</dd></div><div><dt>Limit</dt><dd>The visible figure is not securely identifiable as a deer, and the object label is outside the frame.</dd></div></dl>
+      <details class="evidence-card__details"><summary>Record details</summary><div class="evidence-detail" data-evidence-detail>
+    <p class="evidence-detail__eyebrow">Record 022 · Contextual image</p>
+    <h3>Reconstructed carved stone in a museum display</h3>
+    <picture><source type="image/webp" srcset="photos/reading/field-20260411-152245.webp 960w, photos/detail/field-20260411-152245.webp 1600w" sizes="(min-width: 900px) 70vw, 94vw"><img src="photos/reading/field-20260411-152245.jpg" srcset="photos/reading/field-20260411-152245.jpg 960w, photos/detail/field-20260411-152245.jpg 1600w" sizes="(min-width: 900px) 70vw, 94vw" alt="Tall illuminated stone reconstruction with a human or animal figure in a museum gallery." width="2448" height="3264" loading="lazy" decoding="async"></picture>
+    <dl class="evidence-detail__reading"><div><dt>Observation</dt><dd>A tall reconstructed or reproduced carved stone is illuminated within a museum display.</dd></div><div><dt>Interpretation</dt><dd>The display situates figural imagery within a wider archaeological narrative.</dd></div><div><dt>Limit</dt><dd>The visible figure is not securely identifiable as a deer, and the object label is outside the frame.</dd></div></dl>
+    <dl class="evidence-detail__meta">
+      <div><dt>Source file</dt><dd>IMG_20260411_152245.jpg</dd></div><div><dt>Period</dt><dd>Unknown</dd></div>
+      <div><dt>Captured</dt><dd><time datetime="2026-04-11T15:22:46">11 April 2026, 15:22:46</time></dd></div>
+      <div><dt>Object findspot</dt><dd>Unknown</dd></div><div><dt>Holding site</dt><dd>Unknown</dd></div>
+      <div><dt>Photo location</dt><dd>Unknown</dd></div><div><dt>Credit</dt><dd>Photograph by Ilia Afanasev; slide credits Xinjiang Uygur Autonomous Region Museum</dd></div>
+      <div><dt>Citations</dt><dd>None assigned</dd></div>
+    </dl>
+  </div></details>
+      <button class="evidence-card__open" type="button" data-evidence-open aria-haspopup="dialog" aria-controls="evidence-dialog">Inspect record</button>
+    </div>
+  </article></div></section>
+  <section class="tarim-deer__chapter" id="caves"><div class="tarim-deer__chapter-heading"><p class="tarim-deer__number">03</p><div><h2>Buddhist imagery</h2><p>The clearest concentration in the supplied argument comes from fifth- and sixth-century Buddhist imagery: Mogao Caves 249 and 257, alongside the Deer King narrative associated with Kizil Cave 30. The images attest to a cultural and religious deer motif, not necessarily to local hunting practice.</p></div></div><div class="tarim-deer__featured"><article class="evidence-card evidence-card--featured">
+    <figure><picture><source type="image/webp" srcset="photos/thumbnails/field-20260410-172053.webp 480w, photos/reading/field-20260410-172053.webp 960w" sizes="(min-width: 760px) 46vw, 100vw"><img src="photos/thumbnails/field-20260410-172053.jpg" srcset="photos/thumbnails/field-20260410-172053.jpg 480w, photos/reading/field-20260410-172053.jpg 960w" sizes="(min-width: 760px) 46vw, 100vw" alt="Framed reproduction of a painted scene containing a spotted deer and human figures." width="3072" height="4096" loading="lazy" decoding="async"></picture><figcaption><span>014</span> Reproduction of a cave painting with deer</figcaption></figure>
+    <div class="evidence-card__body"><p class="evidence-card__class">Contextual image · Late antiquity</p>
+      <dl class="evidence-card__reading"><div><dt>Observation</dt><dd>A framed reproduction shows a spotted deer within a narrative scene.</dd></div><div><dt>Interpretation</dt><dd>The image records the transmission and museum presentation of a Buddhist deer narrative.</dd></div><div><dt>Limit</dt><dd>The photographed reproduction is not the original mural, and its cave attribution is not legible here.</dd></div></dl>
+      <details class="evidence-card__details"><summary>Record details</summary><div class="evidence-detail" data-evidence-detail>
+    <p class="evidence-detail__eyebrow">Record 014 · Contextual image</p>
+    <h3>Reproduction of a cave painting with deer</h3>
+    <picture><source type="image/webp" srcset="photos/reading/field-20260410-172053.webp 960w, photos/detail/field-20260410-172053.webp 1600w" sizes="(min-width: 900px) 70vw, 94vw"><img src="photos/reading/field-20260410-172053.jpg" srcset="photos/reading/field-20260410-172053.jpg 960w, photos/detail/field-20260410-172053.jpg 1600w" sizes="(min-width: 900px) 70vw, 94vw" alt="Framed reproduction of a painted scene containing a spotted deer and human figures." width="3072" height="4096" loading="lazy" decoding="async"></picture>
+    <dl class="evidence-detail__reading"><div><dt>Observation</dt><dd>A framed reproduction shows a spotted deer within a narrative scene.</dd></div><div><dt>Interpretation</dt><dd>The image records the transmission and museum presentation of a Buddhist deer narrative.</dd></div><div><dt>Limit</dt><dd>The photographed reproduction is not the original mural, and its cave attribution is not legible here.</dd></div></dl>
+    <dl class="evidence-detail__meta">
+      <div><dt>Source file</dt><dd>IMG_20260410_172053.jpg</dd></div><div><dt>Period</dt><dd>Late antiquity</dd></div>
+      <div><dt>Captured</dt><dd><time datetime="2026-04-10T17:20:53">10 April 2026, 17:20:53</time></dd></div>
+      <div><dt>Object findspot</dt><dd>Unknown</dd></div><div><dt>Holding site</dt><dd>Unknown</dd></div>
+      <div><dt>Photo location</dt><dd>Unknown</dd></div><div><dt>Credit</dt><dd>Photograph by Ilia Afanasev</dd></div>
+      <div><dt>Citations</dt><dd><a href="#ref-4">[4]</a></dd></div>
+    </dl>
+  </div></details>
+      <button class="evidence-card__open" type="button" data-evidence-open aria-haspopup="dialog" aria-controls="evidence-dialog">Inspect record</button>
+    </div>
+  </article>
+<article class="evidence-card evidence-card--featured">
+    <figure><picture><source type="image/webp" srcset="photos/thumbnails/cave-249.webp 480w, photos/reading/cave-249.webp 960w" sizes="(min-width: 760px) 46vw, 100vw"><img src="photos/thumbnails/cave-249.jpg" srcset="photos/thumbnails/cave-249.jpg 480w, photos/reading/cave-249.jpg 960w" sizes="(min-width: 760px) 46vw, 100vw" alt="Painted cave scene with mounted and standing hunters pursuing animals including antlered deer." width="640" height="434" loading="lazy" decoding="async"></picture><figcaption><span>024</span> Deer hunt scene, Mogao Cave 249</figcaption></figure>
+    <div class="evidence-card__body"><p class="evidence-card__class">Direct evidence · Western Wei, sixth century CE</p>
+      <dl class="evidence-card__reading"><div><dt>Observation</dt><dd>A painted hunting scene includes multiple animals; antlered deer are visible among them.</dd></div><div><dt>Interpretation</dt><dd>The mural is strong evidence for the deer motif in a sixth-century Buddhist cave context.</dd></div><div><dt>Limit</dt><dd>A depicted hunt does not by itself prove local hunting practice or animal abundance.</dd></div></dl>
+      <details class="evidence-card__details"><summary>Record details</summary><div class="evidence-detail" data-evidence-detail>
+    <p class="evidence-detail__eyebrow">Record 024 · Direct evidence</p>
+    <h3>Deer hunt scene, Mogao Cave 249</h3>
+    <picture><source type="image/webp" srcset="photos/reading/cave-249.webp 960w, photos/detail/cave-249.webp 1600w" sizes="(min-width: 900px) 70vw, 94vw"><img src="photos/reading/cave-249.jpg" srcset="photos/reading/cave-249.jpg 960w, photos/detail/cave-249.jpg 1600w" sizes="(min-width: 900px) 70vw, 94vw" alt="Painted cave scene with mounted and standing hunters pursuing animals including antlered deer." width="640" height="434" loading="lazy" decoding="async"></picture>
+    <dl class="evidence-detail__reading"><div><dt>Observation</dt><dd>A painted hunting scene includes multiple animals; antlered deer are visible among them.</dd></div><div><dt>Interpretation</dt><dd>The mural is strong evidence for the deer motif in a sixth-century Buddhist cave context.</dd></div><div><dt>Limit</dt><dd>A depicted hunt does not by itself prove local hunting practice or animal abundance.</dd></div></dl>
+    <dl class="evidence-detail__meta">
+      <div><dt>Source file</dt><dd>deer_cave249.jpg</dd></div><div><dt>Period</dt><dd>Western Wei, sixth century CE</dd></div>
+      <div><dt>Captured</dt><dd>Unknown</dd></div>
+      <div><dt>Object findspot</dt><dd>Mogao Cave 249, near Dunhuang, China</dd></div><div><dt>Holding site</dt><dd>Mogao Cave 249</dd></div>
+      <div><dt>Photo location</dt><dd>Unknown</dd></div><div><dt>Credit</dt><dd>Supplied reference image; original mural at Mogao Cave 249</dd></div>
+      <div><dt>Citations</dt><dd><a href="#ref-1">[1]</a></dd></div>
+    </dl>
+  </div></details>
+      <button class="evidence-card__open" type="button" data-evidence-open aria-haspopup="dialog" aria-controls="evidence-dialog">Inspect record</button>
+    </div>
+  </article>
+<article class="evidence-card evidence-card--featured">
+    <figure><picture><source type="image/webp" srcset="photos/thumbnails/cave-257.webp 480w, photos/reading/cave-257.webp 960w" sizes="(min-width: 760px) 46vw, 100vw"><img src="photos/thumbnails/cave-257.jpg" srcset="photos/thumbnails/cave-257.jpg 480w, photos/reading/cave-257.jpg 960w" sizes="(min-width: 760px) 46vw, 100vw" alt="Painted detail with two pale spotted deer from the Nine-Coloured Deer narrative." width="640" height="916" loading="lazy" decoding="async"></picture><figcaption><span>025</span> Nine-Coloured Deer narrative, Mogao Cave 257</figcaption></figure>
+    <div class="evidence-card__body"><p class="evidence-card__class">Direct evidence · Northern Wei, fifth century CE</p>
+      <dl class="evidence-card__reading"><div><dt>Observation</dt><dd>Two pale, spotted deer occupy a narrative mural field.</dd></div><div><dt>Interpretation</dt><dd>The image documents a prominent Buddhist deer story in a fifth-century cave context.</dd></div><div><dt>Limit</dt><dd>Religious imagery establishes cultural salience, not local population history.</dd></div></dl>
+      <details class="evidence-card__details"><summary>Record details</summary><div class="evidence-detail" data-evidence-detail>
+    <p class="evidence-detail__eyebrow">Record 025 · Direct evidence</p>
+    <h3>Nine-Coloured Deer narrative, Mogao Cave 257</h3>
+    <picture><source type="image/webp" srcset="photos/reading/cave-257.webp 960w, photos/detail/cave-257.webp 1600w" sizes="(min-width: 900px) 70vw, 94vw"><img src="photos/reading/cave-257.jpg" srcset="photos/reading/cave-257.jpg 960w, photos/detail/cave-257.jpg 1600w" sizes="(min-width: 900px) 70vw, 94vw" alt="Painted detail with two pale spotted deer from the Nine-Coloured Deer narrative." width="640" height="916" loading="lazy" decoding="async"></picture>
+    <dl class="evidence-detail__reading"><div><dt>Observation</dt><dd>Two pale, spotted deer occupy a narrative mural field.</dd></div><div><dt>Interpretation</dt><dd>The image documents a prominent Buddhist deer story in a fifth-century cave context.</dd></div><div><dt>Limit</dt><dd>Religious imagery establishes cultural salience, not local population history.</dd></div></dl>
+    <dl class="evidence-detail__meta">
+      <div><dt>Source file</dt><dd>deer_cave257_northern_wei.jpg</dd></div><div><dt>Period</dt><dd>Northern Wei, fifth century CE</dd></div>
+      <div><dt>Captured</dt><dd>Unknown</dd></div>
+      <div><dt>Object findspot</dt><dd>Mogao Cave 257, near Dunhuang, China</dd></div><div><dt>Holding site</dt><dd>Mogao Cave 257</dd></div>
+      <div><dt>Photo location</dt><dd>Unknown</dd></div><div><dt>Credit</dt><dd>Supplied reference image; original mural at Mogao Cave 257</dd></div>
+      <div><dt>Citations</dt><dd><a href="#ref-4">[4]</a></dd></div>
+    </dl>
+  </div></details>
+      <button class="evidence-card__open" type="button" data-evidence-open aria-haspopup="dialog" aria-controls="evidence-dialog">Inspect record</button>
+    </div>
+  </article></div></section>
+  <section class="tarim-deer__chapter tarim-deer__synthesis" id="synthesis"><div class="tarim-deer__chapter-heading"><p class="tarim-deer__number">04</p><div><h2>A deliberately cautious synthesis</h2><p>The collected material supports the presence of deer as animal remains, represented creatures, and culturally meaningful figures. It does not yet provide a continuous history of deer populations in the basin or a secure link between every depiction and local subsistence.</p></div></div><div class="tarim-deer__claims"><div><h3>Supported</h3><p>Deer were known, depicted, and incorporated into material and religious culture across multiple periods represented by the evidence.</p></div><div><h3>Not yet supported</h3><p>A continuous local population history, a single tradition of deer hunting, or a direct path from imagery to linguistic borrowing.</p></div><div><h3>Next work</h3><p>Phylogenetic study of Tarim red deer, a broader archaeological catalogue, and a corpus-based study of the relevant deer terms.</p></div></div></section>
+
+  <section class="tarim-deer__archive" id="index"><header class="tarim-deer__archive-heading"><div><p class="tarim-deer__number">05</p><h2>Evidence index</h2></div><p><span data-result-count>40</span> of 40 records shown. Comparative items supply visual context and are not direct evidence of presence in the Tarim Basin.</p></header>
+    <form class="tarim-deer__filters" data-evidence-filters hidden><label>Evidence type<select name="type"><option value="all">All types</option><option value="direct">Direct evidence</option><option value="comparative">Comparative material</option><option value="contextual">Contextual image</option><option value="documentation">Documentation</option></select></label><label>Period<select name="period"><option value="all">All periods</option><option value="prehistoric">Prehistoric / Bronze Age</option><option value="late-antiquity">Late antiquity</option><option value="later">Later historical</option><option value="contemporary">Contemporary record</option><option value="unknown">Unknown</option></select></label><label>Verified place<select name="place"><option value="all">All places</option><option value="mogao-249">Mogao Cave 249</option><option value="mogao-257">Mogao Cave 257</option><option value="hami">Hami</option><option value="unknown">Unknown / unverified</option></select></label><button type="reset">Reset</button></form>
+    <div class="tarim-deer__grid" data-evidence-grid><article class="evidence-card" id="evidence-field-20260402-103224" data-record data-type="documentation" data-period="unknown" data-place="unknown">
+    <figure><picture><source type="image/webp" srcset="photos/thumbnails/field-20260402-103224.webp 480w" sizes="(min-width: 960px) 23vw, (min-width: 600px) 46vw, 100vw"><img src="photos/thumbnails/field-20260402-103224.jpg" srcset="photos/thumbnails/field-20260402-103224.jpg 480w" sizes="(min-width: 960px) 23vw, (min-width: 600px) 46vw, 100vw" alt="Museum display label beneath a dark exhibition case." width="3072" height="4096" loading="lazy" decoding="async"></picture><figcaption><span>001</span> Display label for deer-shaped bronze objects</figcaption></figure>
+    <div class="evidence-card__body"><p class="evidence-card__class">Documentation · Unknown</p>
+      
+      <details class="evidence-card__details"><summary>Record details</summary><div class="evidence-detail" data-evidence-detail>
+    <p class="evidence-detail__eyebrow">Record 001 · Documentation</p>
+    <h3>Display label for deer-shaped bronze objects</h3>
+    <picture><source type="image/webp" srcset="photos/reading/field-20260402-103224.webp 960w, photos/detail/field-20260402-103224.webp 1600w" sizes="(min-width: 900px) 70vw, 94vw"><img src="photos/reading/field-20260402-103224.jpg" srcset="photos/reading/field-20260402-103224.jpg 960w, photos/detail/field-20260402-103224.jpg 1600w" sizes="(min-width: 900px) 70vw, 94vw" alt="Museum display label beneath a dark exhibition case." width="3072" height="4096" loading="lazy" decoding="async"></picture>
+    <dl class="evidence-detail__reading"><div><dt>Observation</dt><dd>A photographed museum label accompanies deer-shaped objects in the adjacent record.</dd></div><div><dt>Interpretation</dt><dd>The label is supporting documentation for an exhibited object rather than independent evidence of deer presence.</dd></div><div><dt>Limit</dt><dd>The institution and full label wording are not reliably recoverable from the supplied photograph alone.</dd></div></dl>
+    <dl class="evidence-detail__meta">
+      <div><dt>Source file</dt><dd>IMG_20260402_103224.jpg</dd></div><div><dt>Period</dt><dd>Unknown</dd></div>
+      <div><dt>Captured</dt><dd><time datetime="2026-04-02T10:32:25">2 April 2026, 10:32:25</time></dd></div>
+      <div><dt>Object findspot</dt><dd>Unknown</dd></div><div><dt>Holding site</dt><dd>Unknown</dd></div>
+      <div><dt>Photo location</dt><dd>Unknown</dd></div><div><dt>Credit</dt><dd>Photograph by Ilia Afanasev</dd></div>
+      <div><dt>Citations</dt><dd>None assigned</dd></div>
+    </dl>
+  </div></details>
+      <button class="evidence-card__open" type="button" data-evidence-open aria-haspopup="dialog" aria-controls="evidence-dialog">Inspect record</button>
+    </div>
+  </article>
+<article class="evidence-card" id="evidence-field-20260402-103229" data-record data-type="direct" data-period="unknown" data-place="unknown">
+    <figure><picture><source type="image/webp" srcset="photos/thumbnails/field-20260402-103229.webp 480w" sizes="(min-width: 960px) 23vw, (min-width: 600px) 46vw, 100vw"><img src="photos/thumbnails/field-20260402-103229.jpg" srcset="photos/thumbnails/field-20260402-103229.jpg 480w" sizes="(min-width: 960px) 23vw, (min-width: 600px) 46vw, 100vw" alt="Two small green and tan deer-shaped objects displayed side by side in a museum case." width="3072" height="4096" loading="lazy" decoding="async"></picture><figcaption><span>002</span> Pair of deer-shaped objects in a museum case</figcaption></figure>
+    <div class="evidence-card__body"><p class="evidence-card__class">Direct evidence · Unknown</p>
+      
+      <details class="evidence-card__details"><summary>Record details</summary><div class="evidence-detail" data-evidence-detail>
+    <p class="evidence-detail__eyebrow">Record 002 · Direct evidence</p>
+    <h3>Pair of deer-shaped objects in a museum case</h3>
+    <picture><source type="image/webp" srcset="photos/reading/field-20260402-103229.webp 960w, photos/detail/field-20260402-103229.webp 1600w" sizes="(min-width: 900px) 70vw, 94vw"><img src="photos/reading/field-20260402-103229.jpg" srcset="photos/reading/field-20260402-103229.jpg 960w, photos/detail/field-20260402-103229.jpg 1600w" sizes="(min-width: 900px) 70vw, 94vw" alt="Two small green and tan deer-shaped objects displayed side by side in a museum case." width="3072" height="4096" loading="lazy" decoding="async"></picture>
+    <dl class="evidence-detail__reading"><div><dt>Observation</dt><dd>Two small quadruped forms with deer-like bodies are displayed together.</dd></div><div><dt>Interpretation</dt><dd>The objects document the deer motif in material culture.</dd></div><div><dt>Limit</dt><dd>Their date, findspot, material, and holding institution require a verified catalogue record.</dd></div></dl>
+    <dl class="evidence-detail__meta">
+      <div><dt>Source file</dt><dd>IMG_20260402_103229.jpg</dd></div><div><dt>Period</dt><dd>Unknown</dd></div>
+      <div><dt>Captured</dt><dd><time datetime="2026-04-02T10:32:29">2 April 2026, 10:32:29</time></dd></div>
+      <div><dt>Object findspot</dt><dd>Unknown</dd></div><div><dt>Holding site</dt><dd>Unknown</dd></div>
+      <div><dt>Photo location</dt><dd>Unknown</dd></div><div><dt>Credit</dt><dd>Photograph by Ilia Afanasev</dd></div>
+      <div><dt>Citations</dt><dd>None assigned</dd></div>
+    </dl>
+  </div></details>
+      <button class="evidence-card__open" type="button" data-evidence-open aria-haspopup="dialog" aria-controls="evidence-dialog">Inspect record</button>
+    </div>
+  </article>
+<article class="evidence-card" id="evidence-field-20260402-120002" data-record data-type="direct" data-period="unknown" data-place="unknown">
+    <figure><picture><source type="image/webp" srcset="photos/thumbnails/field-20260402-120002.webp 480w" sizes="(min-width: 960px) 23vw, (min-width: 600px) 46vw, 100vw"><img src="photos/thumbnails/field-20260402-120002.jpg" srcset="photos/thumbnails/field-20260402-120002.jpg 480w" sizes="(min-width: 960px) 23vw, (min-width: 600px) 46vw, 100vw" alt="Fragmentary deer skull with two antler bases mounted vertically in a museum case." width="3072" height="4096" loading="lazy" decoding="async"></picture><figcaption><span>003</span> Deer skull in a museum display</figcaption></figure>
+    <div class="evidence-card__body"><p class="evidence-card__class">Direct evidence · Unknown</p>
+      
+      <details class="evidence-card__details"><summary>Record details</summary><div class="evidence-detail" data-evidence-detail>
+    <p class="evidence-detail__eyebrow">Record 003 · Direct evidence</p>
+    <h3>Deer skull in a museum display</h3>
+    <picture><source type="image/webp" srcset="photos/reading/field-20260402-120002.webp 960w, photos/detail/field-20260402-120002.webp 1600w" sizes="(min-width: 900px) 70vw, 94vw"><img src="photos/reading/field-20260402-120002.jpg" srcset="photos/reading/field-20260402-120002.jpg 960w, photos/detail/field-20260402-120002.jpg 1600w" sizes="(min-width: 900px) 70vw, 94vw" alt="Fragmentary deer skull with two antler bases mounted vertically in a museum case." width="3072" height="4096" loading="lazy" decoding="async"></picture>
+    <dl class="evidence-detail__reading"><div><dt>Observation</dt><dd>A fragmentary skull with paired antler bases is mounted above a specimen label.</dd></div><div><dt>Interpretation</dt><dd>A catalogued animal remain can contribute biological evidence when provenance and identification are verified.</dd></div><div><dt>Limit</dt><dd>The photograph alone does not establish findspot, age, or population continuity.</dd></div></dl>
+    <dl class="evidence-detail__meta">
+      <div><dt>Source file</dt><dd>IMG_20260402_120002.jpg</dd></div><div><dt>Period</dt><dd>Unknown</dd></div>
+      <div><dt>Captured</dt><dd><time datetime="2026-04-02T12:00:02">2 April 2026, 12:00:02</time></dd></div>
+      <div><dt>Object findspot</dt><dd>Unknown</dd></div><div><dt>Holding site</dt><dd>Unknown</dd></div>
+      <div><dt>Photo location</dt><dd>Unknown</dd></div><div><dt>Credit</dt><dd>Photograph by Ilia Afanasev; slide credits Chinese Archaeological Museum</dd></div>
+      <div><dt>Citations</dt><dd><a href="#ref-6">[6]</a></dd></div>
+    </dl>
+  </div></details>
+      <button class="evidence-card__open" type="button" data-evidence-open aria-haspopup="dialog" aria-controls="evidence-dialog">Inspect record</button>
+    </div>
+  </article>
+<article class="evidence-card" id="evidence-field-20260402-120004" data-record data-type="documentation" data-period="unknown" data-place="unknown">
+    <figure><picture><source type="image/webp" srcset="photos/thumbnails/field-20260402-120004.webp 480w" sizes="(min-width: 960px) 23vw, (min-width: 600px) 46vw, 100vw"><img src="photos/thumbnails/field-20260402-120004.jpg" srcset="photos/thumbnails/field-20260402-120004.jpg 480w" sizes="(min-width: 960px) 23vw, (min-width: 600px) 46vw, 100vw" alt="Museum label reading Deer Skull beneath a fragmentary specimen." width="3072" height="4096" loading="lazy" decoding="async"></picture><figcaption><span>004</span> Label accompanying a deer skull</figcaption></figure>
+    <div class="evidence-card__body"><p class="evidence-card__class">Documentation · Unknown</p>
+      
+      <details class="evidence-card__details"><summary>Record details</summary><div class="evidence-detail" data-evidence-detail>
+    <p class="evidence-detail__eyebrow">Record 004 · Documentation</p>
+    <h3>Label accompanying a deer skull</h3>
+    <picture><source type="image/webp" srcset="photos/reading/field-20260402-120004.webp 960w, photos/detail/field-20260402-120004.webp 1600w" sizes="(min-width: 900px) 70vw, 94vw"><img src="photos/reading/field-20260402-120004.jpg" srcset="photos/reading/field-20260402-120004.jpg 960w, photos/detail/field-20260402-120004.jpg 1600w" sizes="(min-width: 900px) 70vw, 94vw" alt="Museum label reading Deer Skull beneath a fragmentary specimen." width="3072" height="4096" loading="lazy" decoding="async"></picture>
+    <dl class="evidence-detail__reading"><div><dt>Observation</dt><dd>The visible English heading identifies the displayed specimen as “Deer Skull.”</dd></div><div><dt>Interpretation</dt><dd>The label supports the museum identification recorded in the preceding photograph.</dd></div><div><dt>Limit</dt><dd>Smaller provenance and dating text is not sufficiently legible for transcription.</dd></div></dl>
+    <dl class="evidence-detail__meta">
+      <div><dt>Source file</dt><dd>IMG_20260402_120004.jpg</dd></div><div><dt>Period</dt><dd>Unknown</dd></div>
+      <div><dt>Captured</dt><dd><time datetime="2026-04-02T12:00:04">2 April 2026, 12:00:04</time></dd></div>
+      <div><dt>Object findspot</dt><dd>Unknown</dd></div><div><dt>Holding site</dt><dd>Unknown</dd></div>
+      <div><dt>Photo location</dt><dd>Unknown</dd></div><div><dt>Credit</dt><dd>Photograph by Ilia Afanasev; slide credits Chinese Archaeological Museum</dd></div>
+      <div><dt>Citations</dt><dd><a href="#ref-6">[6]</a></dd></div>
+    </dl>
+  </div></details>
+      <button class="evidence-card__open" type="button" data-evidence-open aria-haspopup="dialog" aria-controls="evidence-dialog">Inspect record</button>
+    </div>
+  </article>
+<article class="evidence-card" id="evidence-field-20260402-120030" data-record data-type="documentation" data-period="unknown" data-place="unknown">
+    <figure><picture><source type="image/webp" srcset="photos/thumbnails/field-20260402-120030.webp 480w" sizes="(min-width: 960px) 23vw, (min-width: 600px) 46vw, 100vw"><img src="photos/thumbnails/field-20260402-120030.jpg" srcset="photos/thumbnails/field-20260402-120030.jpg 480w" sizes="(min-width: 960px) 23vw, (min-width: 600px) 46vw, 100vw" alt="Oblique view of a fragmentary deer skull and its museum label." width="3072" height="4096" loading="lazy" decoding="async"></picture><figcaption><span>005</span> Second view of the deer skull display</figcaption></figure>
+    <div class="evidence-card__body"><p class="evidence-card__class">Documentation · Unknown</p>
+      
+      <details class="evidence-card__details"><summary>Record details</summary><div class="evidence-detail" data-evidence-detail>
+    <p class="evidence-detail__eyebrow">Record 005 · Documentation</p>
+    <h3>Second view of the deer skull display</h3>
+    <picture><source type="image/webp" srcset="photos/reading/field-20260402-120030.webp 960w, photos/detail/field-20260402-120030.webp 1600w" sizes="(min-width: 900px) 70vw, 94vw"><img src="photos/reading/field-20260402-120030.jpg" srcset="photos/reading/field-20260402-120030.jpg 960w, photos/detail/field-20260402-120030.jpg 1600w" sizes="(min-width: 900px) 70vw, 94vw" alt="Oblique view of a fragmentary deer skull and its museum label." width="3072" height="4096" loading="lazy" decoding="async"></picture>
+    <dl class="evidence-detail__reading"><div><dt>Observation</dt><dd>A second angle records the specimen’s underside and its position in the case.</dd></div><div><dt>Interpretation</dt><dd>Multiple views help verify that the photographed label and specimen belong together.</dd></div><div><dt>Limit</dt><dd>The view adds no secure archaeological provenance.</dd></div></dl>
+    <dl class="evidence-detail__meta">
+      <div><dt>Source file</dt><dd>IMG_20260402_120030.jpg</dd></div><div><dt>Period</dt><dd>Unknown</dd></div>
+      <div><dt>Captured</dt><dd><time datetime="2026-04-02T12:00:30">2 April 2026, 12:00:30</time></dd></div>
+      <div><dt>Object findspot</dt><dd>Unknown</dd></div><div><dt>Holding site</dt><dd>Unknown</dd></div>
+      <div><dt>Photo location</dt><dd>Unknown</dd></div><div><dt>Credit</dt><dd>Photograph by Ilia Afanasev; slide credits Chinese Archaeological Museum</dd></div>
+      <div><dt>Citations</dt><dd><a href="#ref-6">[6]</a></dd></div>
+    </dl>
+  </div></details>
+      <button class="evidence-card__open" type="button" data-evidence-open aria-haspopup="dialog" aria-controls="evidence-dialog">Inspect record</button>
+    </div>
+  </article>
+<article class="evidence-card" id="evidence-field-20260402-151913" data-record data-type="direct" data-period="unknown" data-place="unknown">
+    <figure><picture><source type="image/webp" srcset="photos/thumbnails/field-20260402-151913.webp 480w" sizes="(min-width: 960px) 23vw, (min-width: 600px) 46vw, 100vw"><img src="photos/thumbnails/field-20260402-151913.jpg" srcset="photos/thumbnails/field-20260402-151913.jpg 480w" sizes="(min-width: 960px) 23vw, (min-width: 600px) 46vw, 100vw" alt="Small pale carving of a recumbent deer on a black museum plinth." width="3072" height="4096" loading="lazy" decoding="async"></picture><figcaption><span>006</span> Pale deer-shaped carving in a display case</figcaption></figure>
+    <div class="evidence-card__body"><p class="evidence-card__class">Direct evidence · Unknown</p>
+      
+      <details class="evidence-card__details"><summary>Record details</summary><div class="evidence-detail" data-evidence-detail>
+    <p class="evidence-detail__eyebrow">Record 006 · Direct evidence</p>
+    <h3>Pale deer-shaped carving in a display case</h3>
+    <picture><source type="image/webp" srcset="photos/reading/field-20260402-151913.webp 960w, photos/detail/field-20260402-151913.webp 1600w" sizes="(min-width: 900px) 70vw, 94vw"><img src="photos/reading/field-20260402-151913.jpg" srcset="photos/reading/field-20260402-151913.jpg 960w, photos/detail/field-20260402-151913.jpg 1600w" sizes="(min-width: 900px) 70vw, 94vw" alt="Small pale carving of a recumbent deer on a black museum plinth." width="3072" height="4096" loading="lazy" decoding="async"></picture>
+    <dl class="evidence-detail__reading"><div><dt>Observation</dt><dd>A pale, compact carving represents a recumbent animal with raised head and folded legs.</dd></div><div><dt>Interpretation</dt><dd>The form is consistent with a deer motif used on a portable object.</dd></div><div><dt>Limit</dt><dd>Species, material, date, and provenance are not verified from the supplied view.</dd></div></dl>
+    <dl class="evidence-detail__meta">
+      <div><dt>Source file</dt><dd>IMG_20260402_151913.jpg</dd></div><div><dt>Period</dt><dd>Unknown</dd></div>
+      <div><dt>Captured</dt><dd><time datetime="2026-04-02T15:19:13">2 April 2026, 15:19:13</time></dd></div>
+      <div><dt>Object findspot</dt><dd>Unknown</dd></div><div><dt>Holding site</dt><dd>Unknown</dd></div>
+      <div><dt>Photo location</dt><dd>Unknown</dd></div><div><dt>Credit</dt><dd>Photograph by Ilia Afanasev</dd></div>
+      <div><dt>Citations</dt><dd>None assigned</dd></div>
+    </dl>
+  </div></details>
+      <button class="evidence-card__open" type="button" data-evidence-open aria-haspopup="dialog" aria-controls="evidence-dialog">Inspect record</button>
+    </div>
+  </article>
+<article class="evidence-card" id="evidence-field-20260402-151917" data-record data-type="documentation" data-period="unknown" data-place="unknown">
+    <figure><picture><source type="image/webp" srcset="photos/thumbnails/field-20260402-151917.webp 480w" sizes="(min-width: 960px) 23vw, (min-width: 600px) 46vw, 100vw"><img src="photos/thumbnails/field-20260402-151917.jpg" srcset="photos/thumbnails/field-20260402-151917.jpg 480w" sizes="(min-width: 960px) 23vw, (min-width: 600px) 46vw, 100vw" alt="Close view of a pale recumbent deer-shaped carving on a dark plinth." width="3072" height="4096" loading="lazy" decoding="async"></picture><figcaption><span>007</span> Detail of a pale deer-shaped carving</figcaption></figure>
+    <div class="evidence-card__body"><p class="evidence-card__class">Documentation · Unknown</p>
+      
+      <details class="evidence-card__details"><summary>Record details</summary><div class="evidence-detail" data-evidence-detail>
+    <p class="evidence-detail__eyebrow">Record 007 · Documentation</p>
+    <h3>Detail of a pale deer-shaped carving</h3>
+    <picture><source type="image/webp" srcset="photos/reading/field-20260402-151917.webp 960w, photos/detail/field-20260402-151917.webp 1600w" sizes="(min-width: 900px) 70vw, 94vw"><img src="photos/reading/field-20260402-151917.jpg" srcset="photos/reading/field-20260402-151917.jpg 960w, photos/detail/field-20260402-151917.jpg 1600w" sizes="(min-width: 900px) 70vw, 94vw" alt="Close view of a pale recumbent deer-shaped carving on a dark plinth." width="3072" height="4096" loading="lazy" decoding="async"></picture>
+    <dl class="evidence-detail__reading"><div><dt>Observation</dt><dd>A closer view records the rounded head, small ears, body, and folded legs.</dd></div><div><dt>Interpretation</dt><dd>The detail makes the animal identification easier to inspect.</dd></div><div><dt>Limit</dt><dd>The close view still does not supply catalogue metadata.</dd></div></dl>
+    <dl class="evidence-detail__meta">
+      <div><dt>Source file</dt><dd>IMG_20260402_151917.jpg</dd></div><div><dt>Period</dt><dd>Unknown</dd></div>
+      <div><dt>Captured</dt><dd><time datetime="2026-04-02T15:19:18">2 April 2026, 15:19:18</time></dd></div>
+      <div><dt>Object findspot</dt><dd>Unknown</dd></div><div><dt>Holding site</dt><dd>Unknown</dd></div>
+      <div><dt>Photo location</dt><dd>Unknown</dd></div><div><dt>Credit</dt><dd>Photograph by Ilia Afanasev</dd></div>
+      <div><dt>Citations</dt><dd>None assigned</dd></div>
+    </dl>
+  </div></details>
+      <button class="evidence-card__open" type="button" data-evidence-open aria-haspopup="dialog" aria-controls="evidence-dialog">Inspect record</button>
+    </div>
+  </article>
+<article class="evidence-card" id="evidence-field-20260402-151920" data-record data-type="documentation" data-period="unknown" data-place="unknown">
+    <figure><picture><source type="image/webp" srcset="photos/thumbnails/field-20260402-151920.webp 480w" sizes="(min-width: 960px) 23vw, (min-width: 600px) 46vw, 100vw"><img src="photos/thumbnails/field-20260402-151920.jpg" srcset="photos/thumbnails/field-20260402-151920.jpg 480w" sizes="(min-width: 960px) 23vw, (min-width: 600px) 46vw, 100vw" alt="Side view of a pale recumbent deer-shaped carving in a museum display." width="3072" height="4096" loading="lazy" decoding="async"></picture><figcaption><span>008</span> Alternate view of a pale deer-shaped carving</figcaption></figure>
+    <div class="evidence-card__body"><p class="evidence-card__class">Documentation · Unknown</p>
+      
+      <details class="evidence-card__details"><summary>Record details</summary><div class="evidence-detail" data-evidence-detail>
+    <p class="evidence-detail__eyebrow">Record 008 · Documentation</p>
+    <h3>Alternate view of a pale deer-shaped carving</h3>
+    <picture><source type="image/webp" srcset="photos/reading/field-20260402-151920.webp 960w, photos/detail/field-20260402-151920.webp 1600w" sizes="(min-width: 900px) 70vw, 94vw"><img src="photos/reading/field-20260402-151920.jpg" srcset="photos/reading/field-20260402-151920.jpg 960w, photos/detail/field-20260402-151920.jpg 1600w" sizes="(min-width: 900px) 70vw, 94vw" alt="Side view of a pale recumbent deer-shaped carving in a museum display." width="3072" height="4096" loading="lazy" decoding="async"></picture>
+    <dl class="evidence-detail__reading"><div><dt>Observation</dt><dd>An alternate angle records the carving’s silhouette and mounting.</dd></div><div><dt>Interpretation</dt><dd>The view supports comparison with the wider and close photographs of the same display.</dd></div><div><dt>Limit</dt><dd>It should not be counted as a separate object.</dd></div></dl>
+    <dl class="evidence-detail__meta">
+      <div><dt>Source file</dt><dd>IMG_20260402_151920.jpg</dd></div><div><dt>Period</dt><dd>Unknown</dd></div>
+      <div><dt>Captured</dt><dd><time datetime="2026-04-02T15:19:20">2 April 2026, 15:19:20</time></dd></div>
+      <div><dt>Object findspot</dt><dd>Unknown</dd></div><div><dt>Holding site</dt><dd>Unknown</dd></div>
+      <div><dt>Photo location</dt><dd>Unknown</dd></div><div><dt>Credit</dt><dd>Photograph by Ilia Afanasev</dd></div>
+      <div><dt>Citations</dt><dd>None assigned</dd></div>
+    </dl>
+  </div></details>
+      <button class="evidence-card__open" type="button" data-evidence-open aria-haspopup="dialog" aria-controls="evidence-dialog">Inspect record</button>
+    </div>
+  </article>
+<article class="evidence-card" id="evidence-field-20260408-115248" data-record data-type="contextual" data-period="later" data-place="unknown">
+    <figure><picture><source type="image/webp" srcset="photos/thumbnails/field-20260408-115248.webp 480w" sizes="(min-width: 960px) 23vw, (min-width: 600px) 46vw, 100vw"><img src="photos/thumbnails/field-20260408-115248.jpg" srcset="photos/thumbnails/field-20260408-115248.jpg 480w" sizes="(min-width: 960px) 23vw, (min-width: 600px) 46vw, 100vw" alt="Pale architectural relief showing a horizontal procession of running animals." width="4096" height="3072" loading="lazy" decoding="async"></picture><figcaption><span>009</span> Architectural relief with running animals</figcaption></figure>
+    <div class="evidence-card__body"><p class="evidence-card__class">Contextual image · Later historical</p>
+      
+      <details class="evidence-card__details"><summary>Record details</summary><div class="evidence-detail" data-evidence-detail>
+    <p class="evidence-detail__eyebrow">Record 009 · Contextual image</p>
+    <h3>Architectural relief with running animals</h3>
+    <picture><source type="image/webp" srcset="photos/reading/field-20260408-115248.webp 960w, photos/detail/field-20260408-115248.webp 1600w" sizes="(min-width: 900px) 70vw, 94vw"><img src="photos/reading/field-20260408-115248.jpg" srcset="photos/reading/field-20260408-115248.jpg 960w, photos/detail/field-20260408-115248.jpg 1600w" sizes="(min-width: 900px) 70vw, 94vw" alt="Pale architectural relief showing a horizontal procession of running animals." width="4096" height="3072" loading="lazy" decoding="async"></picture>
+    <dl class="evidence-detail__reading"><div><dt>Observation</dt><dd>A long relief shows several running quadrupeds in profile.</dd></div><div><dt>Interpretation</dt><dd>The scene offers contextual evidence for the visual language of animal pursuit.</dd></div><div><dt>Limit</dt><dd>The animals, date, place, and relationship to Tarim deer are not verified here.</dd></div></dl>
+    <dl class="evidence-detail__meta">
+      <div><dt>Source file</dt><dd>IMG_20260408_115248.jpg</dd></div><div><dt>Period</dt><dd>Later historical</dd></div>
+      <div><dt>Captured</dt><dd><time datetime="2026-04-08T11:52:48">8 April 2026, 11:52:48</time></dd></div>
+      <div><dt>Object findspot</dt><dd>Unknown</dd></div><div><dt>Holding site</dt><dd>Unknown</dd></div>
+      <div><dt>Photo location</dt><dd>Unknown</dd></div><div><dt>Credit</dt><dd>Photograph by Ilia Afanasev</dd></div>
+      <div><dt>Citations</dt><dd>None assigned</dd></div>
+    </dl>
+  </div></details>
+      <button class="evidence-card__open" type="button" data-evidence-open aria-haspopup="dialog" aria-controls="evidence-dialog">Inspect record</button>
+    </div>
+  </article>
+<article class="evidence-card" id="evidence-field-20260408-115254" data-record data-type="documentation" data-period="contemporary" data-place="unknown">
+    <figure><picture><source type="image/webp" srcset="photos/thumbnails/field-20260408-115254.webp 480w" sizes="(min-width: 960px) 23vw, (min-width: 600px) 46vw, 100vw"><img src="photos/thumbnails/field-20260408-115254.jpg" srcset="photos/thumbnails/field-20260408-115254.jpg 480w" sizes="(min-width: 960px) 23vw, (min-width: 600px) 46vw, 100vw" alt="Outdoor interpretive panel mounted beside a pale relief." width="4096" height="3072" loading="lazy" decoding="async"></picture><figcaption><span>010</span> Interpretive panel beside the animal relief</figcaption></figure>
+    <div class="evidence-card__body"><p class="evidence-card__class">Documentation · Contemporary record</p>
+      
+      <details class="evidence-card__details"><summary>Record details</summary><div class="evidence-detail" data-evidence-detail>
+    <p class="evidence-detail__eyebrow">Record 010 · Documentation</p>
+    <h3>Interpretive panel beside the animal relief</h3>
+    <picture><source type="image/webp" srcset="photos/reading/field-20260408-115254.webp 960w, photos/detail/field-20260408-115254.webp 1600w" sizes="(min-width: 900px) 70vw, 94vw"><img src="photos/reading/field-20260408-115254.jpg" srcset="photos/reading/field-20260408-115254.jpg 960w, photos/detail/field-20260408-115254.jpg 1600w" sizes="(min-width: 900px) 70vw, 94vw" alt="Outdoor interpretive panel mounted beside a pale relief." width="4096" height="3072" loading="lazy" decoding="async"></picture>
+    <dl class="evidence-detail__reading"><div><dt>Observation</dt><dd>A contemporary interpretive panel stands beside the architectural relief.</dd></div><div><dt>Interpretation</dt><dd>The panel may identify the represented scene and monument when a reliable transcription is available.</dd></div><div><dt>Limit</dt><dd>The supplied resolution does not support a dependable transcription.</dd></div></dl>
+    <dl class="evidence-detail__meta">
+      <div><dt>Source file</dt><dd>IMG_20260408_115254.jpg</dd></div><div><dt>Period</dt><dd>Contemporary record</dd></div>
+      <div><dt>Captured</dt><dd><time datetime="2026-04-08T11:52:54">8 April 2026, 11:52:54</time></dd></div>
+      <div><dt>Object findspot</dt><dd>Unknown</dd></div><div><dt>Holding site</dt><dd>Unknown</dd></div>
+      <div><dt>Photo location</dt><dd>Unknown</dd></div><div><dt>Credit</dt><dd>Photograph by Ilia Afanasev</dd></div>
+      <div><dt>Citations</dt><dd>None assigned</dd></div>
+    </dl>
+  </div></details>
+      <button class="evidence-card__open" type="button" data-evidence-open aria-haspopup="dialog" aria-controls="evidence-dialog">Inspect record</button>
+    </div>
+  </article>
+<article class="evidence-card" id="evidence-field-20260408-115317" data-record data-type="contextual" data-period="later" data-place="unknown">
+    <figure><picture><source type="image/webp" srcset="photos/thumbnails/field-20260408-115317.webp 480w" sizes="(min-width: 960px) 23vw, (min-width: 600px) 46vw, 100vw"><img src="photos/thumbnails/field-20260408-115317.jpg" srcset="photos/thumbnails/field-20260408-115317.jpg 480w" sizes="(min-width: 960px) 23vw, (min-width: 600px) 46vw, 100vw" alt="Close view of two running quadrupeds carved in a pale relief." width="4096" height="3072" loading="lazy" decoding="async"></picture><figcaption><span>011</span> Detail of running animals in relief</figcaption></figure>
+    <div class="evidence-card__body"><p class="evidence-card__class">Contextual image · Later historical</p>
+      
+      <details class="evidence-card__details"><summary>Record details</summary><div class="evidence-detail" data-evidence-detail>
+    <p class="evidence-detail__eyebrow">Record 011 · Contextual image</p>
+    <h3>Detail of running animals in relief</h3>
+    <picture><source type="image/webp" srcset="photos/reading/field-20260408-115317.webp 960w, photos/detail/field-20260408-115317.webp 1600w" sizes="(min-width: 900px) 70vw, 94vw"><img src="photos/reading/field-20260408-115317.jpg" srcset="photos/reading/field-20260408-115317.jpg 960w, photos/detail/field-20260408-115317.jpg 1600w" sizes="(min-width: 900px) 70vw, 94vw" alt="Close view of two running quadrupeds carved in a pale relief." width="4096" height="3072" loading="lazy" decoding="async"></picture>
+    <dl class="evidence-detail__reading"><div><dt>Observation</dt><dd>Two elongated animals run in profile; branching forms above one back may be antlers or adjacent carving.</dd></div><div><dt>Interpretation</dt><dd>The image invites close comparison with established deer depictions.</dd></div><div><dt>Limit</dt><dd>Erosion and incomplete context make species identification insecure.</dd></div></dl>
+    <dl class="evidence-detail__meta">
+      <div><dt>Source file</dt><dd>IMG_20260408_115317.jpg</dd></div><div><dt>Period</dt><dd>Later historical</dd></div>
+      <div><dt>Captured</dt><dd><time datetime="2026-04-08T11:53:17">8 April 2026, 11:53:17</time></dd></div>
+      <div><dt>Object findspot</dt><dd>Unknown</dd></div><div><dt>Holding site</dt><dd>Unknown</dd></div>
+      <div><dt>Photo location</dt><dd>Unknown</dd></div><div><dt>Credit</dt><dd>Photograph by Ilia Afanasev</dd></div>
+      <div><dt>Citations</dt><dd>None assigned</dd></div>
+    </dl>
+  </div></details>
+      <button class="evidence-card__open" type="button" data-evidence-open aria-haspopup="dialog" aria-controls="evidence-dialog">Inspect record</button>
+    </div>
+  </article>
+<article class="evidence-card" id="evidence-field-20260410-152855" data-record data-type="direct" data-period="unknown" data-place="unknown">
+    <figure><picture><source type="image/webp" srcset="photos/thumbnails/field-20260410-152855.webp 480w" sizes="(min-width: 960px) 23vw, (min-width: 600px) 46vw, 100vw"><img src="photos/thumbnails/field-20260410-152855.jpg" srcset="photos/thumbnails/field-20260410-152855.jpg 480w" sizes="(min-width: 960px) 23vw, (min-width: 600px) 46vw, 100vw" alt="Dark curved openwork ornament with a horned animal form displayed on a clear stand." width="3072" height="4096" loading="lazy" decoding="async"></picture><figcaption><span>012</span> Curved openwork animal ornament</figcaption></figure>
+    <div class="evidence-card__body"><p class="evidence-card__class">Direct evidence · Unknown</p>
+      
+      <details class="evidence-card__details"><summary>Record details</summary><div class="evidence-detail" data-evidence-detail>
+    <p class="evidence-detail__eyebrow">Record 012 · Direct evidence</p>
+    <h3>Curved openwork animal ornament</h3>
+    <picture><source type="image/webp" srcset="photos/reading/field-20260410-152855.webp 960w, photos/detail/field-20260410-152855.webp 1600w" sizes="(min-width: 900px) 70vw, 94vw"><img src="photos/reading/field-20260410-152855.jpg" srcset="photos/reading/field-20260410-152855.jpg 960w, photos/detail/field-20260410-152855.jpg 1600w" sizes="(min-width: 900px) 70vw, 94vw" alt="Dark curved openwork ornament with a horned animal form displayed on a clear stand." width="3072" height="4096" loading="lazy" decoding="async"></picture>
+    <dl class="evidence-detail__reading"><div><dt>Observation</dt><dd>A curved object terminates in an openwork animal form with prominent curled appendages.</dd></div><div><dt>Interpretation</dt><dd>The object may belong to a tradition of stylized horned-animal imagery.</dd></div><div><dt>Limit</dt><dd>A secure deer identification and archaeological context require its catalogue entry.</dd></div></dl>
+    <dl class="evidence-detail__meta">
+      <div><dt>Source file</dt><dd>IMG_20260410_152855.jpg</dd></div><div><dt>Period</dt><dd>Unknown</dd></div>
+      <div><dt>Captured</dt><dd><time datetime="2026-04-10T15:28:55">10 April 2026, 15:28:55</time></dd></div>
+      <div><dt>Object findspot</dt><dd>Unknown</dd></div><div><dt>Holding site</dt><dd>Unknown</dd></div>
+      <div><dt>Photo location</dt><dd>Unknown</dd></div><div><dt>Credit</dt><dd>Photograph by Ilia Afanasev</dd></div>
+      <div><dt>Citations</dt><dd>None assigned</dd></div>
+    </dl>
+  </div></details>
+      <button class="evidence-card__open" type="button" data-evidence-open aria-haspopup="dialog" aria-controls="evidence-dialog">Inspect record</button>
+    </div>
+  </article>
+<article class="evidence-card" id="evidence-field-20260410-152902" data-record data-type="documentation" data-period="unknown" data-place="unknown">
+    <figure><picture><source type="image/webp" srcset="photos/thumbnails/field-20260410-152902.webp 480w" sizes="(min-width: 960px) 23vw, (min-width: 600px) 46vw, 100vw"><img src="photos/thumbnails/field-20260410-152902.jpg" srcset="photos/thumbnails/field-20260410-152902.jpg 480w" sizes="(min-width: 960px) 23vw, (min-width: 600px) 46vw, 100vw" alt="Red bilingual museum label beside a pale exhibition surface." width="3072" height="4096" loading="lazy" decoding="async"></picture><figcaption><span>013</span> Label for the curved ornament</figcaption></figure>
+    <div class="evidence-card__body"><p class="evidence-card__class">Documentation · Unknown</p>
+      
+      <details class="evidence-card__details"><summary>Record details</summary><div class="evidence-detail" data-evidence-detail>
+    <p class="evidence-detail__eyebrow">Record 013 · Documentation</p>
+    <h3>Label for the curved ornament</h3>
+    <picture><source type="image/webp" srcset="photos/reading/field-20260410-152902.webp 960w, photos/detail/field-20260410-152902.webp 1600w" sizes="(min-width: 900px) 70vw, 94vw"><img src="photos/reading/field-20260410-152902.jpg" srcset="photos/reading/field-20260410-152902.jpg 960w, photos/detail/field-20260410-152902.jpg 1600w" sizes="(min-width: 900px) 70vw, 94vw" alt="Red bilingual museum label beside a pale exhibition surface." width="3072" height="4096" loading="lazy" decoding="async"></picture>
+    <dl class="evidence-detail__reading"><div><dt>Observation</dt><dd>A bilingual museum label was photographed beside the ornament.</dd></div><div><dt>Interpretation</dt><dd>It is the appropriate source for future catalogue identification.</dd></div><div><dt>Limit</dt><dd>The supplied photograph is too soft for a reliable full transcription.</dd></div></dl>
+    <dl class="evidence-detail__meta">
+      <div><dt>Source file</dt><dd>IMG_20260410_152902.jpg</dd></div><div><dt>Period</dt><dd>Unknown</dd></div>
+      <div><dt>Captured</dt><dd><time datetime="2026-04-10T15:29:02">10 April 2026, 15:29:02</time></dd></div>
+      <div><dt>Object findspot</dt><dd>Unknown</dd></div><div><dt>Holding site</dt><dd>Unknown</dd></div>
+      <div><dt>Photo location</dt><dd>Unknown</dd></div><div><dt>Credit</dt><dd>Photograph by Ilia Afanasev</dd></div>
+      <div><dt>Citations</dt><dd>None assigned</dd></div>
+    </dl>
+  </div></details>
+      <button class="evidence-card__open" type="button" data-evidence-open aria-haspopup="dialog" aria-controls="evidence-dialog">Inspect record</button>
+    </div>
+  </article>
+<article class="evidence-card" id="evidence-field-20260410-172053" data-record data-type="contextual" data-period="late-antiquity" data-place="unknown">
+    <figure><picture><source type="image/webp" srcset="photos/thumbnails/field-20260410-172053.webp 480w" sizes="(min-width: 960px) 23vw, (min-width: 600px) 46vw, 100vw"><img src="photos/thumbnails/field-20260410-172053.jpg" srcset="photos/thumbnails/field-20260410-172053.jpg 480w" sizes="(min-width: 960px) 23vw, (min-width: 600px) 46vw, 100vw" alt="Framed reproduction of a painted scene containing a spotted deer and human figures." width="3072" height="4096" loading="lazy" decoding="async"></picture><figcaption><span>014</span> Reproduction of a cave painting with deer</figcaption></figure>
+    <div class="evidence-card__body"><p class="evidence-card__class">Contextual image · Late antiquity</p>
+      
+      <details class="evidence-card__details"><summary>Record details</summary><div class="evidence-detail" data-evidence-detail>
+    <p class="evidence-detail__eyebrow">Record 014 · Contextual image</p>
+    <h3>Reproduction of a cave painting with deer</h3>
+    <picture><source type="image/webp" srcset="photos/reading/field-20260410-172053.webp 960w, photos/detail/field-20260410-172053.webp 1600w" sizes="(min-width: 900px) 70vw, 94vw"><img src="photos/reading/field-20260410-172053.jpg" srcset="photos/reading/field-20260410-172053.jpg 960w, photos/detail/field-20260410-172053.jpg 1600w" sizes="(min-width: 900px) 70vw, 94vw" alt="Framed reproduction of a painted scene containing a spotted deer and human figures." width="3072" height="4096" loading="lazy" decoding="async"></picture>
+    <dl class="evidence-detail__reading"><div><dt>Observation</dt><dd>A framed reproduction shows a spotted deer within a narrative scene.</dd></div><div><dt>Interpretation</dt><dd>The image records the transmission and museum presentation of a Buddhist deer narrative.</dd></div><div><dt>Limit</dt><dd>The photographed reproduction is not the original mural, and its cave attribution is not legible here.</dd></div></dl>
+    <dl class="evidence-detail__meta">
+      <div><dt>Source file</dt><dd>IMG_20260410_172053.jpg</dd></div><div><dt>Period</dt><dd>Late antiquity</dd></div>
+      <div><dt>Captured</dt><dd><time datetime="2026-04-10T17:20:53">10 April 2026, 17:20:53</time></dd></div>
+      <div><dt>Object findspot</dt><dd>Unknown</dd></div><div><dt>Holding site</dt><dd>Unknown</dd></div>
+      <div><dt>Photo location</dt><dd>Unknown</dd></div><div><dt>Credit</dt><dd>Photograph by Ilia Afanasev</dd></div>
+      <div><dt>Citations</dt><dd><a href="#ref-4">[4]</a></dd></div>
+    </dl>
+  </div></details>
+      <button class="evidence-card__open" type="button" data-evidence-open aria-haspopup="dialog" aria-controls="evidence-dialog">Inspect record</button>
+    </div>
+  </article>
+<article class="evidence-card" id="evidence-field-20260411-151349" data-record data-type="contextual" data-period="prehistoric" data-place="hami">
+    <figure><picture><source type="image/webp" srcset="photos/thumbnails/field-20260411-151349.webp 480w" sizes="(min-width: 960px) 23vw, (min-width: 600px) 46vw, 100vw"><img src="photos/thumbnails/field-20260411-151349.jpg" srcset="photos/thumbnails/field-20260411-151349.jpg 480w" sizes="(min-width: 960px) 23vw, (min-width: 600px) 46vw, 100vw" alt="Orange line drawing of a leaping deer-shaped ornament on a dark museum panel." width="3072" height="4096" loading="lazy" decoding="async"></picture><figcaption><span>015</span> Graphic reconstruction of a deer-shaped ornament</figcaption></figure>
+    <div class="evidence-card__body"><p class="evidence-card__class">Contextual image · Prehistoric / Bronze Age</p>
+      
+      <details class="evidence-card__details"><summary>Record details</summary><div class="evidence-detail" data-evidence-detail>
+    <p class="evidence-detail__eyebrow">Record 015 · Contextual image</p>
+    <h3>Graphic reconstruction of a deer-shaped ornament</h3>
+    <picture><source type="image/webp" srcset="photos/reading/field-20260411-151349.webp 960w, photos/detail/field-20260411-151349.webp 1600w" sizes="(min-width: 900px) 70vw, 94vw"><img src="photos/reading/field-20260411-151349.jpg" srcset="photos/reading/field-20260411-151349.jpg 960w, photos/detail/field-20260411-151349.jpg 1600w" sizes="(min-width: 900px) 70vw, 94vw" alt="Orange line drawing of a leaping deer-shaped ornament on a dark museum panel." width="3072" height="4096" loading="lazy" decoding="async"></picture>
+    <dl class="evidence-detail__reading"><div><dt>Observation</dt><dd>A museum graphic isolates the silhouette of a deer-shaped ornament.</dd></div><div><dt>Interpretation</dt><dd>The reconstruction clarifies how a small object is intended to be read as an animal.</dd></div><div><dt>Limit</dt><dd>A graphic reconstruction is interpretive documentation, not the object itself.</dd></div></dl>
+    <dl class="evidence-detail__meta">
+      <div><dt>Source file</dt><dd>IMG_20260411_151349.jpg</dd></div><div><dt>Period</dt><dd>Prehistoric / Bronze Age</dd></div>
+      <div><dt>Captured</dt><dd><time datetime="2026-04-11T15:13:49">11 April 2026, 15:13:49</time></dd></div>
+      <div><dt>Object findspot</dt><dd>Eastern Tianshan Corridor, Hami County</dd></div><div><dt>Holding site</dt><dd>Unknown</dd></div>
+      <div><dt>Photo location</dt><dd>Unknown</dd></div><div><dt>Credit</dt><dd>Photograph by Ilia Afanasev</dd></div>
+      <div><dt>Citations</dt><dd>None assigned</dd></div>
+    </dl>
+  </div></details>
+      <button class="evidence-card__open" type="button" data-evidence-open aria-haspopup="dialog" aria-controls="evidence-dialog">Inspect record</button>
+    </div>
+  </article>
+<article class="evidence-card" id="evidence-field-20260411-151440" data-record data-type="direct" data-period="prehistoric" data-place="hami">
+    <figure><picture><source type="image/webp" srcset="photos/thumbnails/field-20260411-151440.webp 480w" sizes="(min-width: 960px) 23vw, (min-width: 600px) 46vw, 100vw"><img src="photos/thumbnails/field-20260411-151440.jpg" srcset="photos/thumbnails/field-20260411-151440.jpg 480w" sizes="(min-width: 960px) 23vw, (min-width: 600px) 46vw, 100vw" alt="Small gold ornaments arranged in numbered groups on a pale display surface." width="3072" height="4096" loading="lazy" decoding="async"></picture><figcaption><span>016</span> Gold ornaments displayed by numbered group</figcaption></figure>
+    <div class="evidence-card__body"><p class="evidence-card__class">Direct evidence · Prehistoric / Bronze Age</p>
+      
+      <details class="evidence-card__details"><summary>Record details</summary><div class="evidence-detail" data-evidence-detail>
+    <p class="evidence-detail__eyebrow">Record 016 · Direct evidence</p>
+    <h3>Gold ornaments displayed by numbered group</h3>
+    <picture><source type="image/webp" srcset="photos/reading/field-20260411-151440.webp 960w, photos/detail/field-20260411-151440.webp 1600w" sizes="(min-width: 900px) 70vw, 94vw"><img src="photos/reading/field-20260411-151440.jpg" srcset="photos/reading/field-20260411-151440.jpg 960w, photos/detail/field-20260411-151440.jpg 1600w" sizes="(min-width: 900px) 70vw, 94vw" alt="Small gold ornaments arranged in numbered groups on a pale display surface." width="3072" height="4096" loading="lazy" decoding="async"></picture>
+    <dl class="evidence-detail__reading"><div><dt>Observation</dt><dd>Several small gold ornaments are arranged in groups; animal silhouettes are visible among them.</dd></div><div><dt>Interpretation</dt><dd>The display records deer-shaped ornaments associated with an archaeological assemblage.</dd></div><div><dt>Limit</dt><dd>Individual objects cannot be matched securely to catalogue numbers from this overview.</dd></div></dl>
+    <dl class="evidence-detail__meta">
+      <div><dt>Source file</dt><dd>IMG_20260411_151440.jpg</dd></div><div><dt>Period</dt><dd>Prehistoric / Bronze Age</dd></div>
+      <div><dt>Captured</dt><dd><time datetime="2026-04-11T15:14:40">11 April 2026, 15:14:40</time></dd></div>
+      <div><dt>Object findspot</dt><dd>Eastern Tianshan Corridor, Hami County</dd></div><div><dt>Holding site</dt><dd>Unknown</dd></div>
+      <div><dt>Photo location</dt><dd>Unknown</dd></div><div><dt>Credit</dt><dd>Photograph by Ilia Afanasev</dd></div>
+      <div><dt>Citations</dt><dd>None assigned</dd></div>
+    </dl>
+  </div></details>
+      <button class="evidence-card__open" type="button" data-evidence-open aria-haspopup="dialog" aria-controls="evidence-dialog">Inspect record</button>
+    </div>
+  </article>
+<article class="evidence-card" id="evidence-field-20260411-151444" data-record data-type="documentation" data-period="prehistoric" data-place="hami">
+    <figure><picture><source type="image/webp" srcset="photos/thumbnails/field-20260411-151444.webp 480w" sizes="(min-width: 960px) 23vw, (min-width: 600px) 46vw, 100vw"><img src="photos/thumbnails/field-20260411-151444.jpg" srcset="photos/thumbnails/field-20260411-151444.jpg 480w" sizes="(min-width: 960px) 23vw, (min-width: 600px) 46vw, 100vw" alt="Bilingual museum labels identifying deer-shaped gold ornaments and a gold pendant." width="3072" height="4096" loading="lazy" decoding="async"></picture><figcaption><span>017</span> Labels for deer-shaped gold ornaments</figcaption></figure>
+    <div class="evidence-card__body"><p class="evidence-card__class">Documentation · Prehistoric / Bronze Age</p>
+      
+      <details class="evidence-card__details"><summary>Record details</summary><div class="evidence-detail" data-evidence-detail>
+    <p class="evidence-detail__eyebrow">Record 017 · Documentation</p>
+    <h3>Labels for deer-shaped gold ornaments</h3>
+    <picture><source type="image/webp" srcset="photos/reading/field-20260411-151444.webp 960w, photos/detail/field-20260411-151444.webp 1600w" sizes="(min-width: 900px) 70vw, 94vw"><img src="photos/reading/field-20260411-151444.jpg" srcset="photos/reading/field-20260411-151444.jpg 960w, photos/detail/field-20260411-151444.jpg 1600w" sizes="(min-width: 900px) 70vw, 94vw" alt="Bilingual museum labels identifying deer-shaped gold ornaments and a gold pendant." width="3072" height="4096" loading="lazy" decoding="async"></picture>
+    <dl class="evidence-detail__reading"><div><dt>Observation</dt><dd>The visible English text identifies “Deer-shaped Gold Ornaments” and dates the group to about 3000–2000 years ago.</dd></div><div><dt>Interpretation</dt><dd>The label links the displayed objects to finds from the Eastern Tianshan Corridor in Hami County.</dd></div><div><dt>Limit</dt><dd>Museum and excavation catalogue identifiers are not visible.</dd></div></dl>
+    <dl class="evidence-detail__meta">
+      <div><dt>Source file</dt><dd>IMG_20260411_151444.jpg</dd></div><div><dt>Period</dt><dd>Prehistoric / Bronze Age</dd></div>
+      <div><dt>Captured</dt><dd><time datetime="2026-04-11T15:14:44">11 April 2026, 15:14:44</time></dd></div>
+      <div><dt>Object findspot</dt><dd>Eastern Tianshan Corridor, Hami County</dd></div><div><dt>Holding site</dt><dd>Unknown</dd></div>
+      <div><dt>Photo location</dt><dd>Unknown</dd></div><div><dt>Credit</dt><dd>Photograph by Ilia Afanasev</dd></div>
+      <div><dt>Citations</dt><dd>None assigned</dd></div>
+    </dl>
+  </div></details>
+      <button class="evidence-card__open" type="button" data-evidence-open aria-haspopup="dialog" aria-controls="evidence-dialog">Inspect record</button>
+    </div>
+  </article>
+<article class="evidence-card" id="evidence-field-20260411-151735" data-record data-type="documentation" data-period="contemporary" data-place="unknown">
+    <figure><picture><source type="image/webp" srcset="photos/thumbnails/field-20260411-151735.webp 480w" sizes="(min-width: 960px) 23vw, (min-width: 600px) 46vw, 100vw"><img src="photos/thumbnails/field-20260411-151735.jpg" srcset="photos/thumbnails/field-20260411-151735.jpg 480w" sizes="(min-width: 960px) 23vw, (min-width: 600px) 46vw, 100vw" alt="Tall museum panel with line drawings of people and animals beside display cases." width="2448" height="3264" loading="lazy" decoding="async"></picture><figcaption><span>018</span> Museum panel on hunting and pastoral economy</figcaption></figure>
+    <div class="evidence-card__body"><p class="evidence-card__class">Documentation · Contemporary record</p>
+      
+      <details class="evidence-card__details"><summary>Record details</summary><div class="evidence-detail" data-evidence-detail>
+    <p class="evidence-detail__eyebrow">Record 018 · Documentation</p>
+    <h3>Museum panel on hunting and pastoral economy</h3>
+    <picture><source type="image/webp" srcset="photos/reading/field-20260411-151735.webp 960w, photos/detail/field-20260411-151735.webp 1600w" sizes="(min-width: 900px) 70vw, 94vw"><img src="photos/reading/field-20260411-151735.jpg" srcset="photos/reading/field-20260411-151735.jpg 960w, photos/detail/field-20260411-151735.jpg 1600w" sizes="(min-width: 900px) 70vw, 94vw" alt="Tall museum panel with line drawings of people and animals beside display cases." width="2448" height="3264" loading="lazy" decoding="async"></picture>
+    <dl class="evidence-detail__reading"><div><dt>Observation</dt><dd>A contemporary panel places animal imagery within an account of hunting or pastoral economy.</dd></div><div><dt>Interpretation</dt><dd>It documents the museum’s interpretive framework for the neighboring material.</dd></div><div><dt>Limit</dt><dd>The complete bilingual text is not transcribed from this oblique view.</dd></div></dl>
+    <dl class="evidence-detail__meta">
+      <div><dt>Source file</dt><dd>IMG_20260411_151735.jpg</dd></div><div><dt>Period</dt><dd>Contemporary record</dd></div>
+      <div><dt>Captured</dt><dd><time datetime="2026-04-11T15:17:35">11 April 2026, 15:17:35</time></dd></div>
+      <div><dt>Object findspot</dt><dd>Unknown</dd></div><div><dt>Holding site</dt><dd>Unknown</dd></div>
+      <div><dt>Photo location</dt><dd>Unknown</dd></div><div><dt>Credit</dt><dd>Photograph by Ilia Afanasev</dd></div>
+      <div><dt>Citations</dt><dd>None assigned</dd></div>
+    </dl>
+  </div></details>
+      <button class="evidence-card__open" type="button" data-evidence-open aria-haspopup="dialog" aria-controls="evidence-dialog">Inspect record</button>
+    </div>
+  </article>
+<article class="evidence-card" id="evidence-field-20260411-151907" data-record data-type="direct" data-period="prehistoric" data-place="hami">
+    <figure><picture><source type="image/webp" srcset="photos/thumbnails/field-20260411-151907.webp 480w" sizes="(min-width: 960px) 23vw, (min-width: 600px) 46vw, 100vw"><img src="photos/thumbnails/field-20260411-151907.jpg" srcset="photos/thumbnails/field-20260411-151907.jpg 480w" sizes="(min-width: 960px) 23vw, (min-width: 600px) 46vw, 100vw" alt="Museum graphic showing small gold objects and two mirrored antlered deer silhouettes." width="3072" height="4096" loading="lazy" decoding="async"></picture><figcaption><span>019</span> Display graphic of gold animal ornaments</figcaption></figure>
+    <div class="evidence-card__body"><p class="evidence-card__class">Direct evidence · Prehistoric / Bronze Age</p>
+      
+      <details class="evidence-card__details"><summary>Record details</summary><div class="evidence-detail" data-evidence-detail>
+    <p class="evidence-detail__eyebrow">Record 019 · Direct evidence</p>
+    <h3>Display graphic of gold animal ornaments</h3>
+    <picture><source type="image/webp" srcset="photos/reading/field-20260411-151907.webp 960w, photos/detail/field-20260411-151907.webp 1600w" sizes="(min-width: 900px) 70vw, 94vw"><img src="photos/reading/field-20260411-151907.jpg" srcset="photos/reading/field-20260411-151907.jpg 960w, photos/detail/field-20260411-151907.jpg 1600w" sizes="(min-width: 900px) 70vw, 94vw" alt="Museum graphic showing small gold objects and two mirrored antlered deer silhouettes." width="3072" height="4096" loading="lazy" decoding="async"></picture>
+    <dl class="evidence-detail__reading"><div><dt>Observation</dt><dd>A display groups photographs of small gold objects with enlarged silhouettes of two antlered deer.</dd></div><div><dt>Interpretation</dt><dd>The deer silhouettes make the animal motif in the small ornaments legible.</dd></div><div><dt>Limit</dt><dd>The enlarged figures are display graphics; the original scale and catalogue data need separate verification.</dd></div></dl>
+    <dl class="evidence-detail__meta">
+      <div><dt>Source file</dt><dd>IMG_20260411_151907.jpg</dd></div><div><dt>Period</dt><dd>Prehistoric / Bronze Age</dd></div>
+      <div><dt>Captured</dt><dd><time datetime="2026-04-11T15:19:07">11 April 2026, 15:19:07</time></dd></div>
+      <div><dt>Object findspot</dt><dd>Eastern Tianshan Corridor, Hami County</dd></div><div><dt>Holding site</dt><dd>Unknown</dd></div>
+      <div><dt>Photo location</dt><dd>Unknown</dd></div><div><dt>Credit</dt><dd>Photograph by Ilia Afanasev</dd></div>
+      <div><dt>Citations</dt><dd>None assigned</dd></div>
+    </dl>
+  </div></details>
+      <button class="evidence-card__open" type="button" data-evidence-open aria-haspopup="dialog" aria-controls="evidence-dialog">Inspect record</button>
+    </div>
+  </article>
+<article class="evidence-card" id="evidence-field-20260411-151910" data-record data-type="documentation" data-period="prehistoric" data-place="hami">
+    <figure><picture><source type="image/webp" srcset="photos/thumbnails/field-20260411-151910.webp 480w" sizes="(min-width: 960px) 23vw, (min-width: 600px) 46vw, 100vw"><img src="photos/thumbnails/field-20260411-151910.jpg" srcset="photos/thumbnails/field-20260411-151910.jpg 480w" sizes="(min-width: 960px) 23vw, (min-width: 600px) 46vw, 100vw" alt="Dark bilingual museum panel with images of gold ornaments and antlered deer." width="3072" height="4096" loading="lazy" decoding="async"></picture><figcaption><span>020</span> Interpretive panel for gold animal ornaments</figcaption></figure>
+    <div class="evidence-card__body"><p class="evidence-card__class">Documentation · Prehistoric / Bronze Age</p>
+      
+      <details class="evidence-card__details"><summary>Record details</summary><div class="evidence-detail" data-evidence-detail>
+    <p class="evidence-detail__eyebrow">Record 020 · Documentation</p>
+    <h3>Interpretive panel for gold animal ornaments</h3>
+    <picture><source type="image/webp" srcset="photos/reading/field-20260411-151910.webp 960w, photos/detail/field-20260411-151910.webp 1600w" sizes="(min-width: 900px) 70vw, 94vw"><img src="photos/reading/field-20260411-151910.jpg" srcset="photos/reading/field-20260411-151910.jpg 960w, photos/detail/field-20260411-151910.jpg 1600w" sizes="(min-width: 900px) 70vw, 94vw" alt="Dark bilingual museum panel with images of gold ornaments and antlered deer." width="3072" height="4096" loading="lazy" decoding="async"></picture>
+    <dl class="evidence-detail__reading"><div><dt>Observation</dt><dd>A bilingual panel accompanies the gold objects and animal reconstructions.</dd></div><div><dt>Interpretation</dt><dd>The panel is supporting documentation for the displayed assemblage.</dd></div><div><dt>Limit</dt><dd>Only portions of the explanatory text are legible in the photograph.</dd></div></dl>
+    <dl class="evidence-detail__meta">
+      <div><dt>Source file</dt><dd>IMG_20260411_151910.jpg</dd></div><div><dt>Period</dt><dd>Prehistoric / Bronze Age</dd></div>
+      <div><dt>Captured</dt><dd><time datetime="2026-04-11T15:19:10">11 April 2026, 15:19:10</time></dd></div>
+      <div><dt>Object findspot</dt><dd>Eastern Tianshan Corridor, Hami County</dd></div><div><dt>Holding site</dt><dd>Unknown</dd></div>
+      <div><dt>Photo location</dt><dd>Unknown</dd></div><div><dt>Credit</dt><dd>Photograph by Ilia Afanasev</dd></div>
+      <div><dt>Citations</dt><dd>None assigned</dd></div>
+    </dl>
+  </div></details>
+      <button class="evidence-card__open" type="button" data-evidence-open aria-haspopup="dialog" aria-controls="evidence-dialog">Inspect record</button>
+    </div>
+  </article>
+<article class="evidence-card" id="evidence-field-20260411-152144" data-record data-type="contextual" data-period="prehistoric" data-place="unknown">
+    <figure><picture><source type="image/webp" srcset="photos/thumbnails/field-20260411-152144.webp 480w" sizes="(min-width: 960px) 23vw, (min-width: 600px) 46vw, 100vw"><img src="photos/thumbnails/field-20260411-152144.jpg" srcset="photos/thumbnails/field-20260411-152144.jpg 480w" sizes="(min-width: 960px) 23vw, (min-width: 600px) 46vw, 100vw" alt="Dark museum panel with enlarged drawings of several interlaced animal ornaments." width="3072" height="4096" loading="lazy" decoding="async"></picture><figcaption><span>021</span> Graphic panel of animal-shaped ornaments</figcaption></figure>
+    <div class="evidence-card__body"><p class="evidence-card__class">Contextual image · Prehistoric / Bronze Age</p>
+      
+      <details class="evidence-card__details"><summary>Record details</summary><div class="evidence-detail" data-evidence-detail>
+    <p class="evidence-detail__eyebrow">Record 021 · Contextual image</p>
+    <h3>Graphic panel of animal-shaped ornaments</h3>
+    <picture><source type="image/webp" srcset="photos/reading/field-20260411-152144.webp 960w, photos/detail/field-20260411-152144.webp 1600w" sizes="(min-width: 900px) 70vw, 94vw"><img src="photos/reading/field-20260411-152144.jpg" srcset="photos/reading/field-20260411-152144.jpg 960w, photos/detail/field-20260411-152144.jpg 1600w" sizes="(min-width: 900px) 70vw, 94vw" alt="Dark museum panel with enlarged drawings of several interlaced animal ornaments." width="3072" height="4096" loading="lazy" decoding="async"></picture>
+    <dl class="evidence-detail__reading"><div><dt>Observation</dt><dd>Three enlarged graphics show complex interlaced animal forms.</dd></div><div><dt>Interpretation</dt><dd>The panel provides comparative evidence for stylization in portable animal imagery.</dd></div><div><dt>Limit</dt><dd>Not every represented animal is securely identifiable as a deer.</dd></div></dl>
+    <dl class="evidence-detail__meta">
+      <div><dt>Source file</dt><dd>IMG_20260411_152144.jpg</dd></div><div><dt>Period</dt><dd>Prehistoric / Bronze Age</dd></div>
+      <div><dt>Captured</dt><dd><time datetime="2026-04-11T15:21:44">11 April 2026, 15:21:44</time></dd></div>
+      <div><dt>Object findspot</dt><dd>Unknown</dd></div><div><dt>Holding site</dt><dd>Unknown</dd></div>
+      <div><dt>Photo location</dt><dd>Unknown</dd></div><div><dt>Credit</dt><dd>Photograph by Ilia Afanasev</dd></div>
+      <div><dt>Citations</dt><dd>None assigned</dd></div>
+    </dl>
+  </div></details>
+      <button class="evidence-card__open" type="button" data-evidence-open aria-haspopup="dialog" aria-controls="evidence-dialog">Inspect record</button>
+    </div>
+  </article>
+<article class="evidence-card" id="evidence-field-20260411-152245" data-record data-type="contextual" data-period="unknown" data-place="unknown">
+    <figure><picture><source type="image/webp" srcset="photos/thumbnails/field-20260411-152245.webp 480w" sizes="(min-width: 960px) 23vw, (min-width: 600px) 46vw, 100vw"><img src="photos/thumbnails/field-20260411-152245.jpg" srcset="photos/thumbnails/field-20260411-152245.jpg 480w" sizes="(min-width: 960px) 23vw, (min-width: 600px) 46vw, 100vw" alt="Tall illuminated stone reconstruction with a human or animal figure in a museum gallery." width="2448" height="3264" loading="lazy" decoding="async"></picture><figcaption><span>022</span> Reconstructed carved stone in a museum display</figcaption></figure>
+    <div class="evidence-card__body"><p class="evidence-card__class">Contextual image · Unknown</p>
+      
+      <details class="evidence-card__details"><summary>Record details</summary><div class="evidence-detail" data-evidence-detail>
+    <p class="evidence-detail__eyebrow">Record 022 · Contextual image</p>
+    <h3>Reconstructed carved stone in a museum display</h3>
+    <picture><source type="image/webp" srcset="photos/reading/field-20260411-152245.webp 960w, photos/detail/field-20260411-152245.webp 1600w" sizes="(min-width: 900px) 70vw, 94vw"><img src="photos/reading/field-20260411-152245.jpg" srcset="photos/reading/field-20260411-152245.jpg 960w, photos/detail/field-20260411-152245.jpg 1600w" sizes="(min-width: 900px) 70vw, 94vw" alt="Tall illuminated stone reconstruction with a human or animal figure in a museum gallery." width="2448" height="3264" loading="lazy" decoding="async"></picture>
+    <dl class="evidence-detail__reading"><div><dt>Observation</dt><dd>A tall reconstructed or reproduced carved stone is illuminated within a museum display.</dd></div><div><dt>Interpretation</dt><dd>The display situates figural imagery within a wider archaeological narrative.</dd></div><div><dt>Limit</dt><dd>The visible figure is not securely identifiable as a deer, and the object label is outside the frame.</dd></div></dl>
+    <dl class="evidence-detail__meta">
+      <div><dt>Source file</dt><dd>IMG_20260411_152245.jpg</dd></div><div><dt>Period</dt><dd>Unknown</dd></div>
+      <div><dt>Captured</dt><dd><time datetime="2026-04-11T15:22:46">11 April 2026, 15:22:46</time></dd></div>
+      <div><dt>Object findspot</dt><dd>Unknown</dd></div><div><dt>Holding site</dt><dd>Unknown</dd></div>
+      <div><dt>Photo location</dt><dd>Unknown</dd></div><div><dt>Credit</dt><dd>Photograph by Ilia Afanasev; slide credits Xinjiang Uygur Autonomous Region Museum</dd></div>
+      <div><dt>Citations</dt><dd>None assigned</dd></div>
+    </dl>
+  </div></details>
+      <button class="evidence-card__open" type="button" data-evidence-open aria-haspopup="dialog" aria-controls="evidence-dialog">Inspect record</button>
+    </div>
+  </article>
+<article class="evidence-card" id="evidence-field-20260411-152251" data-record data-type="documentation" data-period="contemporary" data-place="unknown">
+    <figure><picture><source type="image/webp" srcset="photos/thumbnails/field-20260411-152251.webp 480w" sizes="(min-width: 960px) 23vw, (min-width: 600px) 46vw, 100vw"><img src="photos/thumbnails/field-20260411-152251.jpg" srcset="photos/thumbnails/field-20260411-152251.jpg 480w" sizes="(min-width: 960px) 23vw, (min-width: 600px) 46vw, 100vw" alt="Bilingual outdoor museum sign beside grass identifying a reconstructed stone." width="3072" height="4096" loading="lazy" decoding="async"></picture><figcaption><span>023</span> Outdoor label for a reconstructed stone</figcaption></figure>
+    <div class="evidence-card__body"><p class="evidence-card__class">Documentation · Contemporary record</p>
+      
+      <details class="evidence-card__details"><summary>Record details</summary><div class="evidence-detail" data-evidence-detail>
+    <p class="evidence-detail__eyebrow">Record 023 · Documentation</p>
+    <h3>Outdoor label for a reconstructed stone</h3>
+    <picture><source type="image/webp" srcset="photos/reading/field-20260411-152251.webp 960w, photos/detail/field-20260411-152251.webp 1600w" sizes="(min-width: 900px) 70vw, 94vw"><img src="photos/reading/field-20260411-152251.jpg" srcset="photos/reading/field-20260411-152251.jpg 960w, photos/detail/field-20260411-152251.jpg 1600w" sizes="(min-width: 900px) 70vw, 94vw" alt="Bilingual outdoor museum sign beside grass identifying a reconstructed stone." width="3072" height="4096" loading="lazy" decoding="async"></picture>
+    <dl class="evidence-detail__reading"><div><dt>Observation</dt><dd>A bilingual sign identifies the neighboring reconstruction.</dd></div><div><dt>Interpretation</dt><dd>It may provide the appropriate title and context for the preceding record.</dd></div><div><dt>Limit</dt><dd>The sign is not fully legible at this presentation size, so no title is transcribed.</dd></div></dl>
+    <dl class="evidence-detail__meta">
+      <div><dt>Source file</dt><dd>IMG_20260411_152251.jpg</dd></div><div><dt>Period</dt><dd>Contemporary record</dd></div>
+      <div><dt>Captured</dt><dd><time datetime="2026-04-11T15:22:51">11 April 2026, 15:22:51</time></dd></div>
+      <div><dt>Object findspot</dt><dd>Unknown</dd></div><div><dt>Holding site</dt><dd>Unknown</dd></div>
+      <div><dt>Photo location</dt><dd>Unknown</dd></div><div><dt>Credit</dt><dd>Photograph by Ilia Afanasev</dd></div>
+      <div><dt>Citations</dt><dd>None assigned</dd></div>
+    </dl>
+  </div></details>
+      <button class="evidence-card__open" type="button" data-evidence-open aria-haspopup="dialog" aria-controls="evidence-dialog">Inspect record</button>
+    </div>
+  </article>
+<article class="evidence-card" id="evidence-cave-249" data-record data-type="direct" data-period="late-antiquity" data-place="mogao-249">
+    <figure><picture><source type="image/webp" srcset="photos/thumbnails/cave-249.webp 480w" sizes="(min-width: 960px) 23vw, (min-width: 600px) 46vw, 100vw"><img src="photos/thumbnails/cave-249.jpg" srcset="photos/thumbnails/cave-249.jpg 480w" sizes="(min-width: 960px) 23vw, (min-width: 600px) 46vw, 100vw" alt="Painted cave scene with mounted and standing hunters pursuing animals including antlered deer." width="640" height="434" loading="lazy" decoding="async"></picture><figcaption><span>024</span> Deer hunt scene, Mogao Cave 249</figcaption></figure>
+    <div class="evidence-card__body"><p class="evidence-card__class">Direct evidence · Western Wei, sixth century CE</p>
+      
+      <details class="evidence-card__details"><summary>Record details</summary><div class="evidence-detail" data-evidence-detail>
+    <p class="evidence-detail__eyebrow">Record 024 · Direct evidence</p>
+    <h3>Deer hunt scene, Mogao Cave 249</h3>
+    <picture><source type="image/webp" srcset="photos/reading/cave-249.webp 960w, photos/detail/cave-249.webp 1600w" sizes="(min-width: 900px) 70vw, 94vw"><img src="photos/reading/cave-249.jpg" srcset="photos/reading/cave-249.jpg 960w, photos/detail/cave-249.jpg 1600w" sizes="(min-width: 900px) 70vw, 94vw" alt="Painted cave scene with mounted and standing hunters pursuing animals including antlered deer." width="640" height="434" loading="lazy" decoding="async"></picture>
+    <dl class="evidence-detail__reading"><div><dt>Observation</dt><dd>A painted hunting scene includes multiple animals; antlered deer are visible among them.</dd></div><div><dt>Interpretation</dt><dd>The mural is strong evidence for the deer motif in a sixth-century Buddhist cave context.</dd></div><div><dt>Limit</dt><dd>A depicted hunt does not by itself prove local hunting practice or animal abundance.</dd></div></dl>
+    <dl class="evidence-detail__meta">
+      <div><dt>Source file</dt><dd>deer_cave249.jpg</dd></div><div><dt>Period</dt><dd>Western Wei, sixth century CE</dd></div>
+      <div><dt>Captured</dt><dd>Unknown</dd></div>
+      <div><dt>Object findspot</dt><dd>Mogao Cave 249, near Dunhuang, China</dd></div><div><dt>Holding site</dt><dd>Mogao Cave 249</dd></div>
+      <div><dt>Photo location</dt><dd>Unknown</dd></div><div><dt>Credit</dt><dd>Supplied reference image; original mural at Mogao Cave 249</dd></div>
+      <div><dt>Citations</dt><dd><a href="#ref-1">[1]</a></dd></div>
+    </dl>
+  </div></details>
+      <button class="evidence-card__open" type="button" data-evidence-open aria-haspopup="dialog" aria-controls="evidence-dialog">Inspect record</button>
+    </div>
+  </article>
+<article class="evidence-card" id="evidence-cave-257" data-record data-type="direct" data-period="late-antiquity" data-place="mogao-257">
+    <figure><picture><source type="image/webp" srcset="photos/thumbnails/cave-257.webp 480w" sizes="(min-width: 960px) 23vw, (min-width: 600px) 46vw, 100vw"><img src="photos/thumbnails/cave-257.jpg" srcset="photos/thumbnails/cave-257.jpg 480w" sizes="(min-width: 960px) 23vw, (min-width: 600px) 46vw, 100vw" alt="Painted detail with two pale spotted deer from the Nine-Coloured Deer narrative." width="640" height="916" loading="lazy" decoding="async"></picture><figcaption><span>025</span> Nine-Coloured Deer narrative, Mogao Cave 257</figcaption></figure>
+    <div class="evidence-card__body"><p class="evidence-card__class">Direct evidence · Northern Wei, fifth century CE</p>
+      
+      <details class="evidence-card__details"><summary>Record details</summary><div class="evidence-detail" data-evidence-detail>
+    <p class="evidence-detail__eyebrow">Record 025 · Direct evidence</p>
+    <h3>Nine-Coloured Deer narrative, Mogao Cave 257</h3>
+    <picture><source type="image/webp" srcset="photos/reading/cave-257.webp 960w, photos/detail/cave-257.webp 1600w" sizes="(min-width: 900px) 70vw, 94vw"><img src="photos/reading/cave-257.jpg" srcset="photos/reading/cave-257.jpg 960w, photos/detail/cave-257.jpg 1600w" sizes="(min-width: 900px) 70vw, 94vw" alt="Painted detail with two pale spotted deer from the Nine-Coloured Deer narrative." width="640" height="916" loading="lazy" decoding="async"></picture>
+    <dl class="evidence-detail__reading"><div><dt>Observation</dt><dd>Two pale, spotted deer occupy a narrative mural field.</dd></div><div><dt>Interpretation</dt><dd>The image documents a prominent Buddhist deer story in a fifth-century cave context.</dd></div><div><dt>Limit</dt><dd>Religious imagery establishes cultural salience, not local population history.</dd></div></dl>
+    <dl class="evidence-detail__meta">
+      <div><dt>Source file</dt><dd>deer_cave257_northern_wei.jpg</dd></div><div><dt>Period</dt><dd>Northern Wei, fifth century CE</dd></div>
+      <div><dt>Captured</dt><dd>Unknown</dd></div>
+      <div><dt>Object findspot</dt><dd>Mogao Cave 257, near Dunhuang, China</dd></div><div><dt>Holding site</dt><dd>Mogao Cave 257</dd></div>
+      <div><dt>Photo location</dt><dd>Unknown</dd></div><div><dt>Credit</dt><dd>Supplied reference image; original mural at Mogao Cave 257</dd></div>
+      <div><dt>Citations</dt><dd><a href="#ref-4">[4]</a></dd></div>
+    </dl>
+  </div></details>
+      <button class="evidence-card__open" type="button" data-evidence-open aria-haspopup="dialog" aria-controls="evidence-dialog">Inspect record</button>
+    </div>
+  </article>
+<article class="evidence-card" id="evidence-collection-1724" data-record data-type="comparative" data-period="later" data-place="unknown">
+    <figure><picture><source type="image/webp" srcset="photos/thumbnails/collection-1724.webp 480w" sizes="(min-width: 960px) 23vw, (min-width: 600px) 46vw, 100vw"><img src="photos/thumbnails/collection-1724.jpg" srcset="photos/thumbnails/collection-1724.jpg 480w" sizes="(min-width: 960px) 23vw, (min-width: 600px) 46vw, 100vw" alt="Blue-and-white ceramic bowl decorated with alternating deer and plant panels." width="565" height="450" loading="lazy" decoding="async"></picture><figcaption><span>026</span> Blue-and-white bowl with deer panels</figcaption></figure>
+    <div class="evidence-card__body"><p class="evidence-card__class">Comparative material · Later historical</p>
+      
+      <details class="evidence-card__details"><summary>Record details</summary><div class="evidence-detail" data-evidence-detail>
+    <p class="evidence-detail__eyebrow">Record 026 · Comparative material</p>
+    <h3>Blue-and-white bowl with deer panels</h3>
+    <picture><source type="image/webp" srcset="photos/reading/collection-1724.webp 960w, photos/detail/collection-1724.webp 1600w" sizes="(min-width: 900px) 70vw, 94vw"><img src="photos/reading/collection-1724.jpg" srcset="photos/reading/collection-1724.jpg 960w, photos/detail/collection-1724.jpg 1600w" sizes="(min-width: 900px) 70vw, 94vw" alt="Blue-and-white ceramic bowl decorated with alternating deer and plant panels." width="565" height="450" loading="lazy" decoding="async"></picture>
+    <dl class="evidence-detail__reading"><div><dt>Observation</dt><dd>A ceramic bowl bears repeated deer figures separated by decorative panels.</dd></div><div><dt>Interpretation</dt><dd>The object shows the persistence of deer imagery in later decorative art.</dd></div><div><dt>Limit</dt><dd>It is comparative material and does not demonstrate deer presence in the Tarim Basin.</dd></div></dl>
+    <dl class="evidence-detail__meta">
+      <div><dt>Source file</dt><dd>en_1724.jpg</dd></div><div><dt>Period</dt><dd>Later historical</dd></div>
+      <div><dt>Captured</dt><dd>Unknown</dd></div>
+      <div><dt>Object findspot</dt><dd>Unknown</dd></div><div><dt>Holding site</dt><dd>Unknown</dd></div>
+      <div><dt>Photo location</dt><dd>Unknown</dd></div><div><dt>Credit</dt><dd>Supplied collection image; credit not embedded</dd></div>
+      <div><dt>Citations</dt><dd>None assigned</dd></div>
+    </dl>
+  </div></details>
+      <button class="evidence-card__open" type="button" data-evidence-open aria-haspopup="dialog" aria-controls="evidence-dialog">Inspect record</button>
+    </div>
+  </article>
+<article class="evidence-card" id="evidence-collection-2190" data-record data-type="comparative" data-period="later" data-place="unknown">
+    <figure><picture><source type="image/webp" srcset="photos/thumbnails/collection-2190.webp 480w" sizes="(min-width: 960px) 23vw, (min-width: 600px) 46vw, 100vw"><img src="photos/thumbnails/collection-2190.jpg" srcset="photos/thumbnails/collection-2190.jpg 480w" sizes="(min-width: 960px) 23vw, (min-width: 600px) 46vw, 100vw" alt="Blue-and-white ceramic dish showing a small deer in a landscape." width="372" height="450" loading="lazy" decoding="async"></picture><figcaption><span>027</span> Blue-and-white dish with landscape and deer</figcaption></figure>
+    <div class="evidence-card__body"><p class="evidence-card__class">Comparative material · Later historical</p>
+      
+      <details class="evidence-card__details"><summary>Record details</summary><div class="evidence-detail" data-evidence-detail>
+    <p class="evidence-detail__eyebrow">Record 027 · Comparative material</p>
+    <h3>Blue-and-white dish with landscape and deer</h3>
+    <picture><source type="image/webp" srcset="photos/reading/collection-2190.webp 960w, photos/detail/collection-2190.webp 1600w" sizes="(min-width: 900px) 70vw, 94vw"><img src="photos/reading/collection-2190.jpg" srcset="photos/reading/collection-2190.jpg 960w, photos/detail/collection-2190.jpg 1600w" sizes="(min-width: 900px) 70vw, 94vw" alt="Blue-and-white ceramic dish showing a small deer in a landscape." width="372" height="450" loading="lazy" decoding="async"></picture>
+    <dl class="evidence-detail__reading"><div><dt>Observation</dt><dd>A small deer appears within the central painted landscape of a dish.</dd></div><div><dt>Interpretation</dt><dd>The image supplies a later comparison for deer integrated into landscape imagery.</dd></div><div><dt>Limit</dt><dd>No Tarim provenance is established.</dd></div></dl>
+    <dl class="evidence-detail__meta">
+      <div><dt>Source file</dt><dd>en_2190.jpg</dd></div><div><dt>Period</dt><dd>Later historical</dd></div>
+      <div><dt>Captured</dt><dd>Unknown</dd></div>
+      <div><dt>Object findspot</dt><dd>Unknown</dd></div><div><dt>Holding site</dt><dd>Unknown</dd></div>
+      <div><dt>Photo location</dt><dd>Unknown</dd></div><div><dt>Credit</dt><dd>Supplied collection image; credit not embedded</dd></div>
+      <div><dt>Citations</dt><dd>None assigned</dd></div>
+    </dl>
+  </div></details>
+      <button class="evidence-card__open" type="button" data-evidence-open aria-haspopup="dialog" aria-controls="evidence-dialog">Inspect record</button>
+    </div>
+  </article>
+<article class="evidence-card" id="evidence-collection-2960" data-record data-type="comparative" data-period="later" data-place="unknown">
+    <figure><picture><source type="image/webp" srcset="photos/thumbnails/collection-2960.webp 480w" sizes="(min-width: 960px) 23vw, (min-width: 600px) 46vw, 100vw"><img src="photos/thumbnails/collection-2960.jpg" srcset="photos/thumbnails/collection-2960.jpg 480w" sizes="(min-width: 960px) 23vw, (min-width: 600px) 46vw, 100vw" alt="Small white ceramic vessel with moulded plant forms and a deer in relief." width="600" height="450" loading="lazy" decoding="async"></picture><figcaption><span>028</span> White ceramic vessel with moulded deer</figcaption></figure>
+    <div class="evidence-card__body"><p class="evidence-card__class">Comparative material · Later historical</p>
+      
+      <details class="evidence-card__details"><summary>Record details</summary><div class="evidence-detail" data-evidence-detail>
+    <p class="evidence-detail__eyebrow">Record 028 · Comparative material</p>
+    <h3>White ceramic vessel with moulded deer</h3>
+    <picture><source type="image/webp" srcset="photos/reading/collection-2960.webp 960w, photos/detail/collection-2960.webp 1600w" sizes="(min-width: 900px) 70vw, 94vw"><img src="photos/reading/collection-2960.jpg" srcset="photos/reading/collection-2960.jpg 960w, photos/detail/collection-2960.jpg 1600w" sizes="(min-width: 900px) 70vw, 94vw" alt="Small white ceramic vessel with moulded plant forms and a deer in relief." width="600" height="450" loading="lazy" decoding="async"></picture>
+    <dl class="evidence-detail__reading"><div><dt>Observation</dt><dd>A deer in low relief appears beneath moulded vegetation on a small white vessel.</dd></div><div><dt>Interpretation</dt><dd>The vessel offers a later decorative parallel for deer imagery.</dd></div><div><dt>Limit</dt><dd>Date, origin, collection, and relationship to the Tarim Basin are unverified.</dd></div></dl>
+    <dl class="evidence-detail__meta">
+      <div><dt>Source file</dt><dd>en_2960.jpg</dd></div><div><dt>Period</dt><dd>Later historical</dd></div>
+      <div><dt>Captured</dt><dd>Unknown</dd></div>
+      <div><dt>Object findspot</dt><dd>Unknown</dd></div><div><dt>Holding site</dt><dd>Unknown</dd></div>
+      <div><dt>Photo location</dt><dd>Unknown</dd></div><div><dt>Credit</dt><dd>Supplied collection image; credit not embedded</dd></div>
+      <div><dt>Citations</dt><dd>None assigned</dd></div>
+    </dl>
+  </div></details>
+      <button class="evidence-card__open" type="button" data-evidence-open aria-haspopup="dialog" aria-controls="evidence-dialog">Inspect record</button>
+    </div>
+  </article>
+<article class="evidence-card" id="evidence-collection-2961" data-record data-type="documentation" data-period="later" data-place="unknown">
+    <figure><picture><source type="image/webp" srcset="photos/thumbnails/collection-2961.webp 480w" sizes="(min-width: 960px) 23vw, (min-width: 600px) 46vw, 100vw"><img src="photos/thumbnails/collection-2961.jpg" srcset="photos/thumbnails/collection-2961.jpg 480w" sizes="(min-width: 960px) 23vw, (min-width: 600px) 46vw, 100vw" alt="Alternate view of a white ceramic vessel with moulded deer and plant decoration." width="600" height="450" loading="lazy" decoding="async"></picture><figcaption><span>029</span> White ceramic vessel, alternate view I</figcaption></figure>
+    <div class="evidence-card__body"><p class="evidence-card__class">Documentation · Later historical</p>
+      
+      <details class="evidence-card__details"><summary>Record details</summary><div class="evidence-detail" data-evidence-detail>
+    <p class="evidence-detail__eyebrow">Record 029 · Documentation</p>
+    <h3>White ceramic vessel, alternate view I</h3>
+    <picture><source type="image/webp" srcset="photos/reading/collection-2961.webp 960w, photos/detail/collection-2961.webp 1600w" sizes="(min-width: 900px) 70vw, 94vw"><img src="photos/reading/collection-2961.jpg" srcset="photos/reading/collection-2961.jpg 960w, photos/detail/collection-2961.jpg 1600w" sizes="(min-width: 900px) 70vw, 94vw" alt="Alternate view of a white ceramic vessel with moulded deer and plant decoration." width="600" height="450" loading="lazy" decoding="async"></picture>
+    <dl class="evidence-detail__reading"><div><dt>Observation</dt><dd>A second view records another side of the moulded vessel.</dd></div><div><dt>Interpretation</dt><dd>The view documents the decoration around the same comparative object.</dd></div><div><dt>Limit</dt><dd>It is not a separate object or direct Tarim evidence.</dd></div></dl>
+    <dl class="evidence-detail__meta">
+      <div><dt>Source file</dt><dd>en_2961.jpg</dd></div><div><dt>Period</dt><dd>Later historical</dd></div>
+      <div><dt>Captured</dt><dd>Unknown</dd></div>
+      <div><dt>Object findspot</dt><dd>Unknown</dd></div><div><dt>Holding site</dt><dd>Unknown</dd></div>
+      <div><dt>Photo location</dt><dd>Unknown</dd></div><div><dt>Credit</dt><dd>Supplied collection image; credit not embedded</dd></div>
+      <div><dt>Citations</dt><dd>None assigned</dd></div>
+    </dl>
+  </div></details>
+      <button class="evidence-card__open" type="button" data-evidence-open aria-haspopup="dialog" aria-controls="evidence-dialog">Inspect record</button>
+    </div>
+  </article>
+<article class="evidence-card" id="evidence-collection-2962" data-record data-type="documentation" data-period="later" data-place="unknown">
+    <figure><picture><source type="image/webp" srcset="photos/thumbnails/collection-2962.webp 480w" sizes="(min-width: 960px) 23vw, (min-width: 600px) 46vw, 100vw"><img src="photos/thumbnails/collection-2962.jpg" srcset="photos/thumbnails/collection-2962.jpg 480w" sizes="(min-width: 960px) 23vw, (min-width: 600px) 46vw, 100vw" alt="Reverse view of a white ceramic vessel with shallow moulded decoration." width="600" height="450" loading="lazy" decoding="async"></picture><figcaption><span>030</span> White ceramic vessel, alternate view II</figcaption></figure>
+    <div class="evidence-card__body"><p class="evidence-card__class">Documentation · Later historical</p>
+      
+      <details class="evidence-card__details"><summary>Record details</summary><div class="evidence-detail" data-evidence-detail>
+    <p class="evidence-detail__eyebrow">Record 030 · Documentation</p>
+    <h3>White ceramic vessel, alternate view II</h3>
+    <picture><source type="image/webp" srcset="photos/reading/collection-2962.webp 960w, photos/detail/collection-2962.webp 1600w" sizes="(min-width: 900px) 70vw, 94vw"><img src="photos/reading/collection-2962.jpg" srcset="photos/reading/collection-2962.jpg 960w, photos/detail/collection-2962.jpg 1600w" sizes="(min-width: 900px) 70vw, 94vw" alt="Reverse view of a white ceramic vessel with shallow moulded decoration." width="600" height="450" loading="lazy" decoding="async"></picture>
+    <dl class="evidence-detail__reading"><div><dt>Observation</dt><dd>The reverse view records further shallow relief and a collection sticker.</dd></div><div><dt>Interpretation</dt><dd>It helps document the comparative vessel as a three-dimensional object.</dd></div><div><dt>Limit</dt><dd>Collection details are not legible.</dd></div></dl>
+    <dl class="evidence-detail__meta">
+      <div><dt>Source file</dt><dd>en_2962.jpg</dd></div><div><dt>Period</dt><dd>Later historical</dd></div>
+      <div><dt>Captured</dt><dd>Unknown</dd></div>
+      <div><dt>Object findspot</dt><dd>Unknown</dd></div><div><dt>Holding site</dt><dd>Unknown</dd></div>
+      <div><dt>Photo location</dt><dd>Unknown</dd></div><div><dt>Credit</dt><dd>Supplied collection image; credit not embedded</dd></div>
+      <div><dt>Citations</dt><dd>None assigned</dd></div>
+    </dl>
+  </div></details>
+      <button class="evidence-card__open" type="button" data-evidence-open aria-haspopup="dialog" aria-controls="evidence-dialog">Inspect record</button>
+    </div>
+  </article>
+<article class="evidence-card" id="evidence-collection-2963" data-record data-type="documentation" data-period="later" data-place="unknown">
+    <figure><picture><source type="image/webp" srcset="photos/thumbnails/collection-2963.webp 480w" sizes="(min-width: 960px) 23vw, (min-width: 600px) 46vw, 100vw"><img src="photos/thumbnails/collection-2963.jpg" srcset="photos/thumbnails/collection-2963.jpg 480w" sizes="(min-width: 960px) 23vw, (min-width: 600px) 46vw, 100vw" alt="Side view of a white ceramic vessel with small moulded animal forms." width="600" height="450" loading="lazy" decoding="async"></picture><figcaption><span>031</span> White ceramic vessel, alternate view III</figcaption></figure>
+    <div class="evidence-card__body"><p class="evidence-card__class">Documentation · Later historical</p>
+      
+      <details class="evidence-card__details"><summary>Record details</summary><div class="evidence-detail" data-evidence-detail>
+    <p class="evidence-detail__eyebrow">Record 031 · Documentation</p>
+    <h3>White ceramic vessel, alternate view III</h3>
+    <picture><source type="image/webp" srcset="photos/reading/collection-2963.webp 960w, photos/detail/collection-2963.webp 1600w" sizes="(min-width: 900px) 70vw, 94vw"><img src="photos/reading/collection-2963.jpg" srcset="photos/reading/collection-2963.jpg 960w, photos/detail/collection-2963.jpg 1600w" sizes="(min-width: 900px) 70vw, 94vw" alt="Side view of a white ceramic vessel with small moulded animal forms." width="600" height="450" loading="lazy" decoding="async"></picture>
+    <dl class="evidence-detail__reading"><div><dt>Observation</dt><dd>A side view shows additional moulded animal and plant forms.</dd></div><div><dt>Interpretation</dt><dd>It supports close reading of the vessel’s continuous decorative program.</dd></div><div><dt>Limit</dt><dd>The individual species are difficult to identify from the shallow relief.</dd></div></dl>
+    <dl class="evidence-detail__meta">
+      <div><dt>Source file</dt><dd>en_2963.jpg</dd></div><div><dt>Period</dt><dd>Later historical</dd></div>
+      <div><dt>Captured</dt><dd>Unknown</dd></div>
+      <div><dt>Object findspot</dt><dd>Unknown</dd></div><div><dt>Holding site</dt><dd>Unknown</dd></div>
+      <div><dt>Photo location</dt><dd>Unknown</dd></div><div><dt>Credit</dt><dd>Supplied collection image; credit not embedded</dd></div>
+      <div><dt>Citations</dt><dd>None assigned</dd></div>
+    </dl>
+  </div></details>
+      <button class="evidence-card__open" type="button" data-evidence-open aria-haspopup="dialog" aria-controls="evidence-dialog">Inspect record</button>
+    </div>
+  </article>
+<article class="evidence-card" id="evidence-collection-2964" data-record data-type="documentation" data-period="later" data-place="unknown">
+    <figure><picture><source type="image/webp" srcset="photos/thumbnails/collection-2964.webp 480w" sizes="(min-width: 960px) 23vw, (min-width: 600px) 46vw, 100vw"><img src="photos/thumbnails/collection-2964.jpg" srcset="photos/thumbnails/collection-2964.jpg 480w" sizes="(min-width: 960px) 23vw, (min-width: 600px) 46vw, 100vw" alt="Side view of a white ceramic vessel with moulded plant and animal decoration." width="600" height="450" loading="lazy" decoding="async"></picture><figcaption><span>032</span> White ceramic vessel, alternate view IV</figcaption></figure>
+    <div class="evidence-card__body"><p class="evidence-card__class">Documentation · Later historical</p>
+      
+      <details class="evidence-card__details"><summary>Record details</summary><div class="evidence-detail" data-evidence-detail>
+    <p class="evidence-detail__eyebrow">Record 032 · Documentation</p>
+    <h3>White ceramic vessel, alternate view IV</h3>
+    <picture><source type="image/webp" srcset="photos/reading/collection-2964.webp 960w, photos/detail/collection-2964.webp 1600w" sizes="(min-width: 900px) 70vw, 94vw"><img src="photos/reading/collection-2964.jpg" srcset="photos/reading/collection-2964.jpg 960w, photos/detail/collection-2964.jpg 1600w" sizes="(min-width: 900px) 70vw, 94vw" alt="Side view of a white ceramic vessel with moulded plant and animal decoration." width="600" height="450" loading="lazy" decoding="async"></picture>
+    <dl class="evidence-detail__reading"><div><dt>Observation</dt><dd>Another side records the relation between moulded vegetation and animal forms.</dd></div><div><dt>Interpretation</dt><dd>It provides visual documentation for comparison rather than additional evidence.</dd></div><div><dt>Limit</dt><dd>Provenance and catalogue identification remain unknown.</dd></div></dl>
+    <dl class="evidence-detail__meta">
+      <div><dt>Source file</dt><dd>en_2964.jpg</dd></div><div><dt>Period</dt><dd>Later historical</dd></div>
+      <div><dt>Captured</dt><dd>Unknown</dd></div>
+      <div><dt>Object findspot</dt><dd>Unknown</dd></div><div><dt>Holding site</dt><dd>Unknown</dd></div>
+      <div><dt>Photo location</dt><dd>Unknown</dd></div><div><dt>Credit</dt><dd>Supplied collection image; credit not embedded</dd></div>
+      <div><dt>Citations</dt><dd>None assigned</dd></div>
+    </dl>
+  </div></details>
+      <button class="evidence-card__open" type="button" data-evidence-open aria-haspopup="dialog" aria-controls="evidence-dialog">Inspect record</button>
+    </div>
+  </article>
+<article class="evidence-card" id="evidence-collection-2965" data-record data-type="documentation" data-period="later" data-place="unknown">
+    <figure><picture><source type="image/webp" srcset="photos/thumbnails/collection-2965.webp 480w" sizes="(min-width: 960px) 23vw, (min-width: 600px) 46vw, 100vw"><img src="photos/thumbnails/collection-2965.jpg" srcset="photos/thumbnails/collection-2965.jpg 480w" sizes="(min-width: 960px) 23vw, (min-width: 600px) 46vw, 100vw" alt="Final side view of a white ceramic vessel with a moulded deer-like animal." width="600" height="450" loading="lazy" decoding="async"></picture><figcaption><span>033</span> White ceramic vessel, alternate view V</figcaption></figure>
+    <div class="evidence-card__body"><p class="evidence-card__class">Documentation · Later historical</p>
+      
+      <details class="evidence-card__details"><summary>Record details</summary><div class="evidence-detail" data-evidence-detail>
+    <p class="evidence-detail__eyebrow">Record 033 · Documentation</p>
+    <h3>White ceramic vessel, alternate view V</h3>
+    <picture><source type="image/webp" srcset="photos/reading/collection-2965.webp 960w, photos/detail/collection-2965.webp 1600w" sizes="(min-width: 900px) 70vw, 94vw"><img src="photos/reading/collection-2965.jpg" srcset="photos/reading/collection-2965.jpg 960w, photos/detail/collection-2965.jpg 1600w" sizes="(min-width: 900px) 70vw, 94vw" alt="Final side view of a white ceramic vessel with a moulded deer-like animal." width="600" height="450" loading="lazy" decoding="async"></picture>
+    <dl class="evidence-detail__reading"><div><dt>Observation</dt><dd>A final side view shows a small quadruped in shallow relief.</dd></div><div><dt>Interpretation</dt><dd>The series makes it possible to inspect the entire circumference of the vessel.</dd></div><div><dt>Limit</dt><dd>The species and catalogue context remain unverified.</dd></div></dl>
+    <dl class="evidence-detail__meta">
+      <div><dt>Source file</dt><dd>en_2965.jpg</dd></div><div><dt>Period</dt><dd>Later historical</dd></div>
+      <div><dt>Captured</dt><dd>Unknown</dd></div>
+      <div><dt>Object findspot</dt><dd>Unknown</dd></div><div><dt>Holding site</dt><dd>Unknown</dd></div>
+      <div><dt>Photo location</dt><dd>Unknown</dd></div><div><dt>Credit</dt><dd>Supplied collection image; credit not embedded</dd></div>
+      <div><dt>Citations</dt><dd>None assigned</dd></div>
+    </dl>
+  </div></details>
+      <button class="evidence-card__open" type="button" data-evidence-open aria-haspopup="dialog" aria-controls="evidence-dialog">Inspect record</button>
+    </div>
+  </article>
+<article class="evidence-card" id="evidence-collection-3181" data-record data-type="comparative" data-period="later" data-place="unknown">
+    <figure><picture><source type="image/webp" srcset="photos/thumbnails/collection-3181.webp 480w" sizes="(min-width: 960px) 23vw, (min-width: 600px) 46vw, 100vw"><img src="photos/thumbnails/collection-3181.jpg" srcset="photos/thumbnails/collection-3181.jpg 480w" sizes="(min-width: 960px) 23vw, (min-width: 600px) 46vw, 100vw" alt="Blue-and-white ceramic dish painted with mounted figures pursuing animals." width="408" height="450" loading="lazy" decoding="async"></picture><figcaption><span>034</span> Blue-and-white dish with mounted hunt</figcaption></figure>
+    <div class="evidence-card__body"><p class="evidence-card__class">Comparative material · Later historical</p>
+      
+      <details class="evidence-card__details"><summary>Record details</summary><div class="evidence-detail" data-evidence-detail>
+    <p class="evidence-detail__eyebrow">Record 034 · Comparative material</p>
+    <h3>Blue-and-white dish with mounted hunt</h3>
+    <picture><source type="image/webp" srcset="photos/reading/collection-3181.webp 960w, photos/detail/collection-3181.webp 1600w" sizes="(min-width: 900px) 70vw, 94vw"><img src="photos/reading/collection-3181.jpg" srcset="photos/reading/collection-3181.jpg 960w, photos/detail/collection-3181.jpg 1600w" sizes="(min-width: 900px) 70vw, 94vw" alt="Blue-and-white ceramic dish painted with mounted figures pursuing animals." width="408" height="450" loading="lazy" decoding="async"></picture>
+    <dl class="evidence-detail__reading"><div><dt>Observation</dt><dd>Mounted figures and running animals fill the central painted scene.</dd></div><div><dt>Interpretation</dt><dd>The dish provides a later parallel for the visual convention of the hunt.</dd></div><div><dt>Limit</dt><dd>The animals are small, and no Tarim relationship is established.</dd></div></dl>
+    <dl class="evidence-detail__meta">
+      <div><dt>Source file</dt><dd>en_3181.jpg</dd></div><div><dt>Period</dt><dd>Later historical</dd></div>
+      <div><dt>Captured</dt><dd>Unknown</dd></div>
+      <div><dt>Object findspot</dt><dd>Unknown</dd></div><div><dt>Holding site</dt><dd>Unknown</dd></div>
+      <div><dt>Photo location</dt><dd>Unknown</dd></div><div><dt>Credit</dt><dd>Supplied collection image; credit not embedded</dd></div>
+      <div><dt>Citations</dt><dd>None assigned</dd></div>
+    </dl>
+  </div></details>
+      <button class="evidence-card__open" type="button" data-evidence-open aria-haspopup="dialog" aria-controls="evidence-dialog">Inspect record</button>
+    </div>
+  </article>
+<article class="evidence-card" id="evidence-collection-3198" data-record data-type="comparative" data-period="later" data-place="unknown">
+    <figure><picture><source type="image/webp" srcset="photos/thumbnails/collection-3198.webp 480w" sizes="(min-width: 960px) 23vw, (min-width: 600px) 46vw, 100vw"><img src="photos/thumbnails/collection-3198.jpg" srcset="photos/thumbnails/collection-3198.jpg 480w" sizes="(min-width: 960px) 23vw, (min-width: 600px) 46vw, 100vw" alt="Blue-and-white ceramic dish with an antlered deer at the center of a landscape." width="600" height="450" loading="lazy" decoding="async"></picture><figcaption><span>035</span> Blue-and-white dish with antlered deer</figcaption></figure>
+    <div class="evidence-card__body"><p class="evidence-card__class">Comparative material · Later historical</p>
+      
+      <details class="evidence-card__details"><summary>Record details</summary><div class="evidence-detail" data-evidence-detail>
+    <p class="evidence-detail__eyebrow">Record 035 · Comparative material</p>
+    <h3>Blue-and-white dish with antlered deer</h3>
+    <picture><source type="image/webp" srcset="photos/reading/collection-3198.webp 960w, photos/detail/collection-3198.webp 1600w" sizes="(min-width: 900px) 70vw, 94vw"><img src="photos/reading/collection-3198.jpg" srcset="photos/reading/collection-3198.jpg 960w, photos/detail/collection-3198.jpg 1600w" sizes="(min-width: 900px) 70vw, 94vw" alt="Blue-and-white ceramic dish with an antlered deer at the center of a landscape." width="600" height="450" loading="lazy" decoding="async"></picture>
+    <dl class="evidence-detail__reading"><div><dt>Observation</dt><dd>An antlered deer occupies the center of a painted landscape medallion.</dd></div><div><dt>Interpretation</dt><dd>The clear silhouette is useful for comparison with more ambiguous animal forms.</dd></div><div><dt>Limit</dt><dd>It is later comparative imagery without verified Tarim provenance.</dd></div></dl>
+    <dl class="evidence-detail__meta">
+      <div><dt>Source file</dt><dd>en_3198.jpg</dd></div><div><dt>Period</dt><dd>Later historical</dd></div>
+      <div><dt>Captured</dt><dd>Unknown</dd></div>
+      <div><dt>Object findspot</dt><dd>Unknown</dd></div><div><dt>Holding site</dt><dd>Unknown</dd></div>
+      <div><dt>Photo location</dt><dd>Unknown</dd></div><div><dt>Credit</dt><dd>Supplied collection image; credit not embedded</dd></div>
+      <div><dt>Citations</dt><dd>None assigned</dd></div>
+    </dl>
+  </div></details>
+      <button class="evidence-card__open" type="button" data-evidence-open aria-haspopup="dialog" aria-controls="evidence-dialog">Inspect record</button>
+    </div>
+  </article>
+<article class="evidence-card" id="evidence-collection-3377" data-record data-type="comparative" data-period="later" data-place="unknown">
+    <figure><picture><source type="image/webp" srcset="photos/thumbnails/collection-3377.webp 480w" sizes="(min-width: 960px) 23vw, (min-width: 600px) 46vw, 100vw"><img src="photos/thumbnails/collection-3377.jpg" srcset="photos/thumbnails/collection-3377.jpg 480w" sizes="(min-width: 960px) 23vw, (min-width: 600px) 46vw, 100vw" alt="Small blue-and-white cup and matching dish painted with a deer in a landscape." width="600" height="450" loading="lazy" decoding="async"></picture><figcaption><span>036</span> Blue-and-white cup and dish with deer landscape</figcaption></figure>
+    <div class="evidence-card__body"><p class="evidence-card__class">Comparative material · Later historical</p>
+      
+      <details class="evidence-card__details"><summary>Record details</summary><div class="evidence-detail" data-evidence-detail>
+    <p class="evidence-detail__eyebrow">Record 036 · Comparative material</p>
+    <h3>Blue-and-white cup and dish with deer landscape</h3>
+    <picture><source type="image/webp" srcset="photos/reading/collection-3377.webp 960w, photos/detail/collection-3377.webp 1600w" sizes="(min-width: 900px) 70vw, 94vw"><img src="photos/reading/collection-3377.jpg" srcset="photos/reading/collection-3377.jpg 960w, photos/detail/collection-3377.jpg 1600w" sizes="(min-width: 900px) 70vw, 94vw" alt="Small blue-and-white cup and matching dish painted with a deer in a landscape." width="600" height="450" loading="lazy" decoding="async"></picture>
+    <dl class="evidence-detail__reading"><div><dt>Observation</dt><dd>A cup and dish repeat a small deer-and-landscape composition.</dd></div><div><dt>Interpretation</dt><dd>The pair demonstrates replication of the motif across a ceramic set.</dd></div><div><dt>Limit</dt><dd>Date, source collection, and connection to the research region are unknown.</dd></div></dl>
+    <dl class="evidence-detail__meta">
+      <div><dt>Source file</dt><dd>en_3377.jpg</dd></div><div><dt>Period</dt><dd>Later historical</dd></div>
+      <div><dt>Captured</dt><dd>Unknown</dd></div>
+      <div><dt>Object findspot</dt><dd>Unknown</dd></div><div><dt>Holding site</dt><dd>Unknown</dd></div>
+      <div><dt>Photo location</dt><dd>Unknown</dd></div><div><dt>Credit</dt><dd>Supplied collection image; credit not embedded</dd></div>
+      <div><dt>Citations</dt><dd>None assigned</dd></div>
+    </dl>
+  </div></details>
+      <button class="evidence-card__open" type="button" data-evidence-open aria-haspopup="dialog" aria-controls="evidence-dialog">Inspect record</button>
+    </div>
+  </article>
+<article class="evidence-card" id="evidence-collection-3401" data-record data-type="comparative" data-period="later" data-place="unknown">
+    <figure><picture><source type="image/webp" srcset="photos/thumbnails/collection-3401.webp 480w" sizes="(min-width: 960px) 23vw, (min-width: 600px) 46vw, 100vw"><img src="photos/thumbnails/collection-3401.jpg" srcset="photos/thumbnails/collection-3401.jpg 480w" sizes="(min-width: 960px) 23vw, (min-width: 600px) 46vw, 100vw" alt="Two polychrome ceramic dishes painted with figures, deer, and landscape elements." width="766" height="450" loading="lazy" decoding="async"></picture><figcaption><span>037</span> Pair of polychrome dishes with hunting scenes</figcaption></figure>
+    <div class="evidence-card__body"><p class="evidence-card__class">Comparative material · Later historical</p>
+      
+      <details class="evidence-card__details"><summary>Record details</summary><div class="evidence-detail" data-evidence-detail>
+    <p class="evidence-detail__eyebrow">Record 037 · Comparative material</p>
+    <h3>Pair of polychrome dishes with hunting scenes</h3>
+    <picture><source type="image/webp" srcset="photos/reading/collection-3401.webp 960w, photos/detail/collection-3401.webp 1600w" sizes="(min-width: 900px) 70vw, 94vw"><img src="photos/reading/collection-3401.jpg" srcset="photos/reading/collection-3401.jpg 960w, photos/detail/collection-3401.jpg 1600w" sizes="(min-width: 900px) 70vw, 94vw" alt="Two polychrome ceramic dishes painted with figures, deer, and landscape elements." width="766" height="450" loading="lazy" decoding="async"></picture>
+    <dl class="evidence-detail__reading"><div><dt>Observation</dt><dd>Two dishes show figures, trees, and deer-like animals in narrative landscapes.</dd></div><div><dt>Interpretation</dt><dd>The pair supplies later comparative imagery for deer and hunting narratives.</dd></div><div><dt>Limit</dt><dd>The scenes do not establish archaeological or biological presence in the Tarim Basin.</dd></div></dl>
+    <dl class="evidence-detail__meta">
+      <div><dt>Source file</dt><dd>en_3401.jpg</dd></div><div><dt>Period</dt><dd>Later historical</dd></div>
+      <div><dt>Captured</dt><dd>Unknown</dd></div>
+      <div><dt>Object findspot</dt><dd>Unknown</dd></div><div><dt>Holding site</dt><dd>Unknown</dd></div>
+      <div><dt>Photo location</dt><dd>Unknown</dd></div><div><dt>Credit</dt><dd>Supplied collection image; credit not embedded</dd></div>
+      <div><dt>Citations</dt><dd>None assigned</dd></div>
+    </dl>
+  </div></details>
+      <button class="evidence-card__open" type="button" data-evidence-open aria-haspopup="dialog" aria-controls="evidence-dialog">Inspect record</button>
+    </div>
+  </article>
+<article class="evidence-card" id="evidence-collection-3490" data-record data-type="comparative" data-period="later" data-place="unknown">
+    <figure><picture><source type="image/webp" srcset="photos/thumbnails/collection-3490.webp 480w" sizes="(min-width: 960px) 23vw, (min-width: 600px) 46vw, 100vw"><img src="photos/thumbnails/collection-3490.jpg" srcset="photos/thumbnails/collection-3490.jpg 480w" sizes="(min-width: 960px) 23vw, (min-width: 600px) 46vw, 100vw" alt="Small rectangular bottle painted with a dark quadruped and green vegetation." width="299" height="450" loading="lazy" decoding="async"></picture><figcaption><span>038</span> Small painted bottle with deer-like animal</figcaption></figure>
+    <div class="evidence-card__body"><p class="evidence-card__class">Comparative material · Later historical</p>
+      
+      <details class="evidence-card__details"><summary>Record details</summary><div class="evidence-detail" data-evidence-detail>
+    <p class="evidence-detail__eyebrow">Record 038 · Comparative material</p>
+    <h3>Small painted bottle with deer-like animal</h3>
+    <picture><source type="image/webp" srcset="photos/reading/collection-3490.webp 960w, photos/detail/collection-3490.webp 1600w" sizes="(min-width: 900px) 70vw, 94vw"><img src="photos/reading/collection-3490.jpg" srcset="photos/reading/collection-3490.jpg 960w, photos/detail/collection-3490.jpg 1600w" sizes="(min-width: 900px) 70vw, 94vw" alt="Small rectangular bottle painted with a dark quadruped and green vegetation." width="299" height="450" loading="lazy" decoding="async"></picture>
+    <dl class="evidence-detail__reading"><div><dt>Observation</dt><dd>A dark quadruped appears among painted vegetation on a small bottle.</dd></div><div><dt>Interpretation</dt><dd>The image offers a possible animal-motif comparison.</dd></div><div><dt>Limit</dt><dd>The animal is not securely identifiable as a deer.</dd></div></dl>
+    <dl class="evidence-detail__meta">
+      <div><dt>Source file</dt><dd>en_3490.jpg</dd></div><div><dt>Period</dt><dd>Later historical</dd></div>
+      <div><dt>Captured</dt><dd>Unknown</dd></div>
+      <div><dt>Object findspot</dt><dd>Unknown</dd></div><div><dt>Holding site</dt><dd>Unknown</dd></div>
+      <div><dt>Photo location</dt><dd>Unknown</dd></div><div><dt>Credit</dt><dd>Supplied collection image; credit not embedded</dd></div>
+      <div><dt>Citations</dt><dd>None assigned</dd></div>
+    </dl>
+  </div></details>
+      <button class="evidence-card__open" type="button" data-evidence-open aria-haspopup="dialog" aria-controls="evidence-dialog">Inspect record</button>
+    </div>
+  </article>
+<article class="evidence-card" id="evidence-collection-3984" data-record data-type="comparative" data-period="later" data-place="unknown">
+    <figure><picture><source type="image/webp" srcset="photos/thumbnails/collection-3984.webp 480w" sizes="(min-width: 960px) 23vw, (min-width: 600px) 46vw, 100vw"><img src="photos/thumbnails/collection-3984.jpg" srcset="photos/thumbnails/collection-3984.jpg 480w" sizes="(min-width: 960px) 23vw, (min-width: 600px) 46vw, 100vw" alt="Tall square blue-and-white vase painted with a mounted hunting scene." width="338" height="450" loading="lazy" decoding="async"></picture><figcaption><span>039</span> Square blue-and-white vase with hunt scene</figcaption></figure>
+    <div class="evidence-card__body"><p class="evidence-card__class">Comparative material · Later historical</p>
+      
+      <details class="evidence-card__details"><summary>Record details</summary><div class="evidence-detail" data-evidence-detail>
+    <p class="evidence-detail__eyebrow">Record 039 · Comparative material</p>
+    <h3>Square blue-and-white vase with hunt scene</h3>
+    <picture><source type="image/webp" srcset="photos/reading/collection-3984.webp 960w, photos/detail/collection-3984.webp 1600w" sizes="(min-width: 900px) 70vw, 94vw"><img src="photos/reading/collection-3984.jpg" srcset="photos/reading/collection-3984.jpg 960w, photos/detail/collection-3984.jpg 1600w" sizes="(min-width: 900px) 70vw, 94vw" alt="Tall square blue-and-white vase painted with a mounted hunting scene." width="338" height="450" loading="lazy" decoding="async"></picture>
+    <dl class="evidence-detail__reading"><div><dt>Observation</dt><dd>A mounted figure and running animal appear in a framed scene on a square vase.</dd></div><div><dt>Interpretation</dt><dd>The object provides a later comparison for portable representations of hunting.</dd></div><div><dt>Limit</dt><dd>The species and relationship to the Tarim Basin are not established.</dd></div></dl>
+    <dl class="evidence-detail__meta">
+      <div><dt>Source file</dt><dd>en_3984.jpg</dd></div><div><dt>Period</dt><dd>Later historical</dd></div>
+      <div><dt>Captured</dt><dd>Unknown</dd></div>
+      <div><dt>Object findspot</dt><dd>Unknown</dd></div><div><dt>Holding site</dt><dd>Unknown</dd></div>
+      <div><dt>Photo location</dt><dd>Unknown</dd></div><div><dt>Credit</dt><dd>Supplied collection image; credit not embedded</dd></div>
+      <div><dt>Citations</dt><dd>None assigned</dd></div>
+    </dl>
+  </div></details>
+      <button class="evidence-card__open" type="button" data-evidence-open aria-haspopup="dialog" aria-controls="evidence-dialog">Inspect record</button>
+    </div>
+  </article>
+<article class="evidence-card" id="evidence-collection-4036" data-record data-type="comparative" data-period="later" data-place="unknown">
+    <figure><picture><source type="image/webp" srcset="photos/thumbnails/collection-4036.webp 480w" sizes="(min-width: 960px) 23vw, (min-width: 600px) 46vw, 100vw"><img src="photos/thumbnails/collection-4036.jpg" srcset="photos/thumbnails/collection-4036.jpg 480w" sizes="(min-width: 960px) 23vw, (min-width: 600px) 46vw, 100vw" alt="Tall blue-and-white beaker vase painted with figures and animals in a landscape." width="325" height="450" loading="lazy" decoding="async"></picture><figcaption><span>040</span> Blue-and-white beaker vase with animal scene</figcaption></figure>
+    <div class="evidence-card__body"><p class="evidence-card__class">Comparative material · Later historical</p>
+      
+      <details class="evidence-card__details"><summary>Record details</summary><div class="evidence-detail" data-evidence-detail>
+    <p class="evidence-detail__eyebrow">Record 040 · Comparative material</p>
+    <h3>Blue-and-white beaker vase with animal scene</h3>
+    <picture><source type="image/webp" srcset="photos/reading/collection-4036.webp 960w, photos/detail/collection-4036.webp 1600w" sizes="(min-width: 900px) 70vw, 94vw"><img src="photos/reading/collection-4036.jpg" srcset="photos/reading/collection-4036.jpg 960w, photos/detail/collection-4036.jpg 1600w" sizes="(min-width: 900px) 70vw, 94vw" alt="Tall blue-and-white beaker vase painted with figures and animals in a landscape." width="325" height="450" loading="lazy" decoding="async"></picture>
+    <dl class="evidence-detail__reading"><div><dt>Observation</dt><dd>Figures and animals occupy stacked landscape panels on a tall vase.</dd></div><div><dt>Interpretation</dt><dd>The vase belongs to the later comparative corpus of animal and hunt imagery.</dd></div><div><dt>Limit</dt><dd>Individual animals and regional provenance are unverified.</dd></div></dl>
+    <dl class="evidence-detail__meta">
+      <div><dt>Source file</dt><dd>en_4036.jpg</dd></div><div><dt>Period</dt><dd>Later historical</dd></div>
+      <div><dt>Captured</dt><dd>Unknown</dd></div>
+      <div><dt>Object findspot</dt><dd>Unknown</dd></div><div><dt>Holding site</dt><dd>Unknown</dd></div>
+      <div><dt>Photo location</dt><dd>Unknown</dd></div><div><dt>Credit</dt><dd>Supplied collection image; credit not embedded</dd></div>
+      <div><dt>Citations</dt><dd>None assigned</dd></div>
+    </dl>
+  </div></details>
+      <button class="evidence-card__open" type="button" data-evidence-open aria-haspopup="dialog" aria-controls="evidence-dialog">Inspect record</button>
+    </div>
+  </article></div><p class="tarim-deer__empty" data-empty-state hidden>No records match these filters.</p>
+  </section>
+
+  <section class="tarim-deer__references" aria-labelledby="references-title"><h2 id="references-title">References cited in the slide deck</h2><ol>
+    <li id="ref-1">Abrams, Jerold J. “Ancient Chinese Cave Paintings as Cinema: The Volcanos and Dragons of Mogao Cave 249.” <cite>International Communication of Chinese Culture</cite> 8.2 (2021): 289–316. DOI: 10.1007/s40636-021-00217-1.</li>
+    <li id="ref-2">Hoffmann, Gunther Sebastian, Jes Johannesen, and Eva Maria Griebeler. “Population Dynamics of a Natural Red Deer Population over 200 Years Detected via Substantial Changes of Genetic Variation.” <cite>Ecology and Evolution</cite> 6.10 (2016): 3146–3153. DOI: 10.1002/ece3.2063.</li>
+    <li id="ref-3">Qi, Cheng et al. “Seasonal Dietary Patterns of Tarim Red Deer (<i>Cervus hanglu yarkandensis</i>) Revealed by the <i>trnL</i> Sequencing Approach in the Tarim River Basin.” <cite>Ecology and Evolution</cite> 15.12 (2025): e72757. DOI: 10.1002/ece3.72757.</li>
+    <li id="ref-4">Ran, Lingjiang. “Extraterritorial Images and Horizontal Scroll Composition: On the Northern Wei ‘Nine-Coloured Deer Benson’ from Cave 257 of Mogao Caves and the Transformation of China.” <cite>Frontiers in Art Research</cite> 5.16 (2023): 88–94. DOI: 10.25236/FAR.2023.051616.</li>
+    <li id="ref-6">Wagner, J. A. “Der Bahra-Singha.” In <cite>Die Säugthiere in Abbildungen nach der Natur, mit Beschreibungen</cite>, supplement 4 (1844): 351–353.</li>
+  </ol><p class="tarim-deer__source-note">Narrative source: <cite>Three kinds of deer, three names for a deer: Deer in Tarim Basin</cite>, presentation dated 20 September 2026. The presentation’s reference [5] is not reproduced because its bibliographic entry is absent from the supplied reference slides.</p></section>
+  <dialog class="tarim-deer__dialog" id="evidence-dialog" data-evidence-dialog aria-label="Evidence detail"><button class="tarim-deer__dialog-close" type="button" data-dialog-close aria-label="Close evidence detail">Close</button><div data-dialog-content></div></dialog>
+</article>
+</main>
+<script>(function () {
+  "use strict";
+
+  var page = document.querySelector("[data-evidence-page]");
+  if (!page) return;
+
+  var filterForm = page.querySelector("[data-evidence-filters]");
+  var evidenceGrid = page.querySelector("[data-evidence-grid]");
+  var records = Array.prototype.slice.call(evidenceGrid.querySelectorAll("[data-record]"));
+  var resultCount = page.querySelector("[data-result-count]");
+  var emptyState = page.querySelector("[data-empty-state]");
+  var dialog = page.querySelector("[data-evidence-dialog]");
+  var dialogContent = page.querySelector("[data-dialog-content]");
+  var closeButton = page.querySelector("[data-dialog-close]");
+  var lastTrigger = null;
+  var supportsDialog = dialog && typeof dialog.showModal === "function";
+
+  page.classList.add("is-enhanced");
+  if (supportsDialog) page.classList.add("has-dialog");
+
+  function updateResults() {
+    var values = new FormData(filterForm);
+    var visible = 0;
+
+    records.forEach(function (record) {
+      var matches = ["type", "period", "place"].every(function (key) {
+        var selected = values.get(key);
+        return selected === "all" || record.dataset[key] === selected;
+      });
+      record.hidden = !matches;
+      if (matches) visible += 1;
+    });
+
+    resultCount.textContent = visible;
+    emptyState.hidden = visible !== 0;
+  }
+
+  function openRecord(trigger) {
+    var record = trigger.closest("[data-record]");
+    var detail = record.querySelector("[data-evidence-detail]");
+    if (!detail || !supportsDialog) return;
+
+    lastTrigger = trigger;
+    dialogContent.replaceChildren(detail.cloneNode(true));
+    dialog.showModal();
+    closeButton.focus();
+  }
+
+  function closeDialog() {
+    if (dialog.open) dialog.close();
+  }
+
+  filterForm.hidden = false;
+  filterForm.addEventListener("change", updateResults);
+  filterForm.addEventListener("reset", function () {
+    window.setTimeout(updateResults, 0);
+  });
+
+  page.addEventListener("click", function (event) {
+    var trigger = event.target.closest("[data-evidence-open]");
+    if (trigger) openRecord(trigger);
+  });
+
+  closeButton.addEventListener("click", closeDialog);
+  dialog.addEventListener("click", function (event) {
+    if (event.target === dialog) closeDialog();
+  });
+  dialog.addEventListener("close", function () {
+    dialogContent.replaceChildren();
+    if (lastTrigger) lastTrigger.focus();
+  });
+})();
+</script>
+</body>
+</html>
